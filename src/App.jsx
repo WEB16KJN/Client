@@ -19,6 +19,7 @@ function App() {
             <Route path="search" element={<SearchQuestion />} />
             <Route path="" element={<SearchQuestion />} />
           </Route>
+          <Route path="/" element={<Main />} />
         </Routes>
         <Footer />
       </>

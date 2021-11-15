@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-    body {
-        font-family: 'NanumSquare', sans-serif;
-    }
     /* http://meyerweb.com/eric/tools/css/reset/ 
         v2.0 | 20110126
         License: none (public domain)
@@ -26,7 +23,6 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         border: 0;
         font-size: 100%;
-        font: inherit;
         vertical-align: baseline;
     }
     article, aside, details, figcaption, figure, 
@@ -50,5 +46,8 @@ export const GlobalStyle = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
+    }
+    * {
+        font-family: 'NanumSquare', sans-serif;
     }
 `;

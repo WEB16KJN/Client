@@ -1,5 +1,10 @@
 import React from 'react';
+import DateSelector from '../../component/question/search/DateSelector';
 
 export default function SearchQuestion() {
-  return <div>SearchQuestion</div>;
+  return (
+    <div>
+      <DateSelector />
+    </div>
+  );
 }

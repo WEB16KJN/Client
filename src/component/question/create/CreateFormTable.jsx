@@ -30,7 +30,7 @@ export default function FormTable() {
         </TableCell>
       </StyledTableRow>
       <TableCell label="문의 내용">
-        <textarea />
+        <StyledTextarea />
       </TableCell>
       <TableCell label="첨부파일">
         <StyledFileInputs>
@@ -64,6 +64,7 @@ const StyledSecretCheckBox = styled.input``;
 
 const StyledTableRow = styled.div`
   display: flex;
+  justify-content: space-between;
   & > *:first-child {
     width: 30%;
   }
@@ -77,4 +78,11 @@ const StyledFileInputs = styled.div`
   & > *:first-child {
     margin-bottom: 12px;
   }
+`;
+
+const StyledTextarea = styled.textarea`
+  width: 100%;
+  height: 136px;
+  resize: none;
+  border: 1px solid ${colors.gray4};
 `;

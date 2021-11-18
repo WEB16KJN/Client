@@ -15,7 +15,8 @@ export default function CreateQuestion() {
 }
 
 const StyledCreateQuestion = styled.div`
-  width: 917px;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

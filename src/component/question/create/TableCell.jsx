@@ -23,10 +23,10 @@ const StyledFormCell = styled.div`
 `;
 
 const StyledLabel = styled.span`
-  width: 10%;
+  width: 130px;
   color: ${colors.gray6};
 `;
 
 const StyledChildren = styled.div`
-  width: 90%;
+  width: calc(100% - 130px);
 `;

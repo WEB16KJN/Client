@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Proptypes from 'prop-types';
 import axios from 'axios';
 import { colors } from '../../styles/color';
+import InputSelf from './InputSelf';
 export default function OptionContent({ title }) {
   const [options, setOptions] = useState([]);
   useEffect(() => {
@@ -13,22 +14,45 @@ export default function OptionContent({ title }) {
     getOptions();
   }, []);
 
+  const renderTitle = () => {
+    switch (title) {
+      case 'group':
+        return '종류';
+      case 'use':
+        return '용도';
+      case 'certification':
+        return '친환경인증';
+      case 'baseWeight':
+        return '평량별';
+      case 'color':
+        return '색상별';
+    }
+  };
+  const handleClick = (e) => {
+    e.target.style.background = 'white';
+    e.target.style.color = 'black';
+  };
   const renderOptionCard = () => {
     return options.map((option, i) => {
       if (title === 'color') {
         return <StyledOptionCard key={i} color={option} />;
       }
-      return <StyledOptionCard key={i}>{option}</StyledOptionCard>;
+      return (
+        <StyledOptionCard key={i} onClick={handleClick}>
+          {option}
+        </StyledOptionCard>
+      );
     });
   };
   return (
     <StyledOptionContent>
       <StyledTitle>
         <li>
-          <span>{title}</span>
+          <span>{renderTitle()}</span>
         </li>
       </StyledTitle>
       <StyledOptionsWrapper>{renderOptionCard()}</StyledOptionsWrapper>
+      {title === 'baseWeight' && <InputSelf />}
     </StyledOptionContent>
   );
 }
@@ -39,8 +63,8 @@ const StyledOptionContent = styled.div`
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 900px;
+  justify-content: space-between;
+  width: 80%;
   margin-bottom: 33px;
 `;
 const StyledTitle = styled.ul`
@@ -56,9 +80,9 @@ const StyledTitle = styled.ul`
   }
 `;
 const StyledOptionsWrapper = styled.div`
-  width: 908px;
   display: flex;
   flex-wrap: wrap;
+  flex-grow: 1;
 `;
 const StyledOptionCard = styled.div`
   width: 110px;
@@ -75,7 +99,8 @@ const StyledOptionCard = styled.div`
   align-items: center;
   justify-content: center;
   color: ${colors.gray1};
-
+  cursor: pointer;
+  box-sizing: border-box;
   ${({ color }) => {
     if (color)
       return css`
@@ -84,5 +109,5 @@ const StyledOptionCard = styled.div`
         border-radius: 50%;
         background: ${color};
       `;
-  }}
+  }};
 `;

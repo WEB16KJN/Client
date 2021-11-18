@@ -16,5 +16,9 @@ const StyledOption = styled.div`
   height: 922px;
   background: ${colors.black};
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 `;
 export default Option;

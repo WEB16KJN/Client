@@ -6,7 +6,7 @@ import Article from '../component/main/Article';
 export default function Main() {
   return (
     <StyledMain>
-      <Intro />
+      <Intro title="hi" />
       <Option />
       <Article />
     </StyledMain>

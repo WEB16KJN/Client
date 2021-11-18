@@ -4,10 +4,7 @@ import { colors } from '../../../styles/color';
 import { DATE_INTERVAL, DATE_TEMPLATE } from '../../../utils/dateSelector';
 import { IcSearchBig } from '../../common/Icon';
 
-function DateSelector() {
-  const [startDate, setStartDate] = useState(DATE_TEMPLATE(new Date()));
-  const [endDate, setEndDate] = useState(DATE_TEMPLATE(new Date()));
-
+function DateSelector({ props: { startDate, setStartDate, endDate, setEndDate } }) {
   const [selectedOption, setSelectedOption] = useState(DATE_INTERVAL[0].index);
 
   const handleStartDateChange = (e) => {

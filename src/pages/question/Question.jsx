@@ -6,7 +6,6 @@ import SideNav from '../../component/question/SideNav';
 import ProfileCalendar from '../../component/question/ProfileCalendar';
 
 export default function Question() {
-  // const [userName, setUserName] = useState("이수연");
   return (
     <StyledWrapper>
       <ProfileCalendar />

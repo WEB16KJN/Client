@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../../styles/color';
 import { DATE_INTERVAL, DATE_TEMPLATE } from '../../../utils/dateSelector';
 import { IcSearchBig } from '../../common/Icon';
 
-function DateSelector({ props: { startDate, setStartDate, endDate, setEndDate } }) {
+function DateSelector({ startDate, setStartDate, endDate, setEndDate }) {
   const [selectedOption, setSelectedOption] = useState(DATE_INTERVAL[0].index);
 
   const handleStartDateChange = (e) => {
@@ -46,6 +47,13 @@ function DateSelector({ props: { startDate, setStartDate, endDate, setEndDate } 
     </StyledGridWrapper>
   );
 }
+
+DateSelector.propTypes = {
+  startDate: PropTypes.string,
+  setStartDate: PropTypes.func,
+  endDate: PropTypes.string,
+  setEndDate: PropTypes.func,
+};
 
 const StyledDateInput = styled.input`
   font-size: 14px;

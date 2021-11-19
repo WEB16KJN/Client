@@ -22,6 +22,7 @@ import { ReactComponent as IcToggleOpen } from './assets/ic_toggle_open.svg';
 import { ReactComponent as IcToggleUp } from './assets/ic_toggle_up.svg';
 import { ReactComponent as IcUser } from './assets/ic_user.svg';
 import { ReactComponent as Logo } from './assets/logo.svg';
+import { ReactComponent as IcMember } from './assets/ic_member.svg';
 
 export {
   IcArrowNext,
@@ -48,4 +49,5 @@ export {
   IcToggleUp,
   IcUser,
   Logo,
+  IcMember,
 };

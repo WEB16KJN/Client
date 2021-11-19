@@ -12,7 +12,7 @@ function ArticleNav() {
 const StyledArticleNav = styled.div`
   display: flex;
   position: absolute;
-  width: 1250px;
+  width: 1212px;
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);

@@ -6,7 +6,7 @@ import Article from '../component/main/Article';
 export default function Main() {
   return (
     <StyledMain>
-      <Intro title="hi" />
+      <Intro />
       <Option />
       <Article />
     </StyledMain>
@@ -16,5 +16,5 @@ export default function Main() {
 const StyledMain = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
 `;

@@ -8,12 +8,11 @@ function Article() {
     <StyledArticle>
       <ArticleNav />
       <ArticleContents />
-      <ArticleContents />
     </StyledArticle>
   );
 }
 const StyledArticle = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 1210px;
   background: ${colors.gray1};
   position: relative;

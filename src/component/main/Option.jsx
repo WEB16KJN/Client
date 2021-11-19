@@ -12,13 +12,13 @@ function Option() {
   );
 }
 const StyledOption = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 922px;
   background: ${colors.black};
   position: relative;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
 `;
 export default Option;

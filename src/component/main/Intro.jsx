@@ -17,7 +17,7 @@ function Intro() {
   );
 }
 const StyledIntro = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 414px;
   display: flex;
   justify-content: center;

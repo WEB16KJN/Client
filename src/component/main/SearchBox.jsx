@@ -11,10 +11,11 @@ function SearchBox() {
     </StyledSearchBox>
   );
 }
-const StyledSearchBox = styled.form`
+const StyledSearchBox = styled.div`
   position: absolute;
   left: 50%;
-  width: 1091px;
+  max-width: 1091px;
+  width: 90%;
   height: 75px;
   border-radius: 37px;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);

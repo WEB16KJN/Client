@@ -46,9 +46,11 @@ const StyledFormTable = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-top: 80px;
   padding-bottom: 120px;
   border-bottom: 1px solid ${colors.gray3};
   margin-bottom: 26px;
+  border-top: 2px solid ${colors.gray8};
   * {
     font-weight: 700;
     font-size: 15px;

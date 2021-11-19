@@ -10,8 +10,10 @@ export default function Question() {
     <StyledWrapper>
       <ProfileCalendar />
       <SideNav />
-      <Title />
-      <Outlet />
+      <div>
+        <Title />
+        <Outlet />
+      </div>
     </StyledWrapper>
   );
 }

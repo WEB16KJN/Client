@@ -43,6 +43,8 @@ export default function FormTable() {
 }
 
 const StyledFormTable = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding-bottom: 120px;
   border-bottom: 1px solid ${colors.gray3};

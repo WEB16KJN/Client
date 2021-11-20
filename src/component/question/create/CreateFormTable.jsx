@@ -4,43 +4,60 @@ import TableCell from './TableCell';
 import { colors } from '../../../styles/color';
 import CreateInput from './CreateInput';
 import FileInput from './FileInput';
+import PropTypes from 'prop-types';
 
 const userName = '이수연';
 
-export default function FormTable() {
+export default function FormTable({ handleQuestionInput }) {
   return (
     <StyledFormTable>
       <TableCell label="작성자">
         <StyledUserName>{userName}</StyledUserName>
       </TableCell>
       <TableCell label="제목">
-        <CreateInput />
+        <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={'title'} />
       </TableCell>
       <TableCell label="비밀글 여부">
         <label>
-          <StyledSecretCheckBox type="checkbox" /> 비밀글
+          <StyledSecretCheckBox
+            type="checkbox"
+            onChange={(e) => handleQuestionInput(e, 'isSecret')}
+          />{' '}
+          비밀글
         </label>
       </TableCell>
       <StyledTableRow>
         <TableCell label="성명">
-          <CreateInput />
+          <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={'name'} />
         </TableCell>
         <TableCell label="핸드폰 번호">
-          <CreateInput />
+          <CreateInput handleQuestionInput={handleQuestionInput} value={'phoneNumber'} type="tel" />
         </TableCell>
       </StyledTableRow>
       <TableCell label="문의 내용">
-        <StyledTextarea />
+        <StyledTextarea onChange={(e) => handleQuestionInput(e, 'contents')} />
       </TableCell>
       <TableCell label="첨부파일">
         <StyledFileInputs>
-          <FileInput addOrDelete="추가 +" />
-          <FileInput addOrDelete="- 삭제" />
+          <FileInput
+            addOrDelete="추가 +"
+            handleQuestionInput={handleQuestionInput}
+            value={'files'}
+          />
+          <FileInput
+            addOrDelete="- 삭제"
+            handleQuestionInput={handleQuestionInput}
+            value={'files'}
+          />
         </StyledFileInputs>
       </TableCell>
     </StyledFormTable>
   );
 }
+
+FormTable.propTypes = {
+  handleQuestionInput: PropTypes.func,
+};
 
 const StyledFormTable = styled.div`
   display: flex;

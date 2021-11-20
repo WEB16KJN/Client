@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../../styles/color';
 
-export default function FileInput({ addOrDelete }) {
+export default function FileInput({ addOrDelete, handleQuestionInput, value }) {
   return (
     <StyledFileInput>
-      <CreateInput />
+      <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={value} />
       <StyledBlackButton>찾아보기</StyledBlackButton>
       <StyledWhiteButton>{addOrDelete}</StyledWhiteButton>
     </StyledFileInput>
@@ -16,6 +16,8 @@ export default function FileInput({ addOrDelete }) {
 
 FileInput.propTypes = {
   addOrDelete: PropTypes.string,
+  handleQuestionInput: PropTypes.func,
+  value: PropTypes.string,
 };
 
 const StyledFileInput = styled.div`

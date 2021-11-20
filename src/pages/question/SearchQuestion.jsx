@@ -11,7 +11,12 @@ export default function SearchQuestion() {
   const [endDate, setEndDate] = useState(DATE_TEMPLATE(new Date()));
   return (
     <div>
-      <DateSelector props={{ startDate, setStartDate, endDate, setEndDate }} />
+      <DateSelector
+        startDate={startDate}
+        setStartDate={setStartDate}
+        endDate={endDate}
+        setEndDate={setEndDate}
+      />
       <StyledSection>
         <div>
           <b>

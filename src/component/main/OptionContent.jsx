@@ -14,26 +14,13 @@ export default function OptionContent({ title }) {
     getOptions();
   }, []);
 
-  const renderTitle = () => {
-    switch (title) {
-      case 'group':
-        return '종류';
-      case 'use':
-        return '용도';
-      case 'certification':
-        return '친환경인증';
-      case 'baseWeight':
-        return '평량별';
-      case 'color':
-        return '색상별';
-    }
-  };
   const handleClick = (e) => {
     e.target.style.background = 'white';
     e.target.style.color = 'black';
   };
+
   const renderOptionCard = () => {
-    return options.map((option, i) => {
+    return options.contents?.map((option, i) => {
       if (title === 'color') {
         return <StyledOptionCard key={i} color={option} />;
       }
@@ -44,11 +31,12 @@ export default function OptionContent({ title }) {
       );
     });
   };
+
   return (
     <StyledOptionContent>
       <StyledTitle>
         <li>
-          <span>{renderTitle()}</span>
+          <span>{options.title}</span>
         </li>
       </StyledTitle>
       <StyledOptionsWrapper>{renderOptionCard()}</StyledOptionsWrapper>

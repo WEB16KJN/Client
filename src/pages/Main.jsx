@@ -13,4 +13,8 @@ export default function Main() {
   );
 }
 
-const StyledMain = styled.div``;
+const StyledMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;

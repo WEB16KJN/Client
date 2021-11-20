@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import DateSelector from '../../component/question/search/DateSelector';
-import QuestionTable from '../../component/question/search/QuestionTable';
+import DateSelector from '../../components/question/search/DateSelector';
+import QuestionTable from '../../components/question/search/QuestionTable';
 import { colors } from '../../styles/color';
 import { DATE_TEMPLATE } from '../../utils/dateSelector';
 

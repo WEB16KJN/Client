@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/color';
-import { IcCheckRoundTrue } from '../common/Icon/index';
+import { IcCheckRoundTrue } from '../common/Icon';
 export default function InputSelf() {
   return (
     <StyledInputSelf>

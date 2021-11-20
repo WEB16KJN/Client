@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../../styles/color';
+import PropTypes from 'prop-types';
 
-export default function CreateInput() {
-  return <StyledCreateInput />;
+export default function CreateInput({ value, handleQuestionInput, type }) {
+  return <StyledCreateInput type={type} onChange={(e) => handleQuestionInput(e, value)} />;
 }
+
+CreateInput.propTypes = {
+  value: PropTypes.string,
+  handleQuestionInput: PropTypes.func,
+  type: PropTypes.string,
+};
 
 const StyledCreateInput = styled.input`
   height: 45px;

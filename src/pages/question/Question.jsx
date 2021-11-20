@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Outlet } from 'react-router-dom';
 import Title from '../../component/question/Title';
 import SideNav from '../../component/question/SideNav';
 import ProfileCalendar from '../../component/question/ProfileCalendar';
+import { Outlet } from 'react-router-dom';
 
 export default function Question() {
   return (

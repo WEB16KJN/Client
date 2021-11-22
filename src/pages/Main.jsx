@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Intro from '../component/main/Intro';
-import Option from '../component/main/Option';
-import Article from '../component/main/Article';
+import Intro from '../components/main/Intro';
+import Option from '../components/main/Option';
+import Article from '../components/main/Article';
 export default function Main() {
   return (
     <StyledMain>

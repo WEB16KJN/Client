@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import CreateFormTable from '../../component/question/create/CreateFormTable';
-import BackOrSubmit from '../../component/question/create/BackOrSubmit';
+import CreateFormTable from '../../components/question/create/CreateFormTable';
+import BackOrSubmit from '../../components/question/create/BackOrSubmit';
 import PropTypes from 'prop-types';
 
 export default function CreateQuestion() {

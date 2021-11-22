@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { colors } from '../../styles/color';
-import { IcLooks, IcLikeFalse, IcLikeTrue } from '../common/Icon/index';
+import { IcLooks, IcLikeFalse, IcLikeTrue } from '../common/Icon';
 export default function ArticleContent({ article }) {
   const [isLiked, setIsLiked] = useState(localStorage.getItem(`like/${article.id}`));
 

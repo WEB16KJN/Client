@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/color';
-import { IcMoveLast, IcMoveNext } from '../common/Icon/index';
+import { IcMoveLast, IcMoveNext } from '../common/Icon';
 export default function PageNav() {
   const renderPagination = () => {
     return Array(10)

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Title from '../../component/question/Title';
-import SideNav from '../../component/question/SideNav';
-import ProfileCalendar from '../../component/question/ProfileCalendar';
+import Title from '../../components/question/Title';
+import SideNav from '../../components/question/SideNav';
+import ProfileCalendar from '../../components/question/ProfileCalendar';
 import { Outlet } from 'react-router-dom';
 
 export default function Question() {

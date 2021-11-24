@@ -11,6 +11,7 @@ export default function CalendarUnit({ calendarContents, calendarNumber }) {
       <StyledContentsText>{calendarContents}</StyledContentsText>
       <StyledWrapper>
         <StyledNumberText>{calendarNumber}</StyledNumberText>
+        <span>건</span>
       </StyledWrapper>
     </StyledCalendarUnit>
   );
@@ -22,7 +23,8 @@ CalendarUnit.propTypes = {
 };
 
 const StyledCalendarUnit = styled.div`
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   border-right: 1px solid #ededed;
   padding-left: 25px;
   & > *:first-child {
@@ -33,21 +35,26 @@ const StyledCalendarUnit = styled.div`
 const StyledContentsText = styled.div`
   width: 60px;
   height: 48px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
 `;
 
 const StyledWrapper = styled.div`
+  padding-top: 5px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  height: 45px;
+  & > span {
+    font-weight: 400;
+    font-size: 15px;
+    color: ${colors.gray5};
+    position: relative;
+    bottom: -5px;
+  }
 `;
 
 const StyledNumberText = styled.div`
   font-weight: 300;
   font-size: 40px;
-  margin-top: 5px;
-  &::after {
-    content: '건';
-    font-weight: 400;
-    font-size: 15px;
-    color: ${colors.gray5};
-  }
 `;

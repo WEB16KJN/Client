@@ -15,7 +15,8 @@ export default function Calendar() {
 }
 
 const StyledCalendar = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 640px;
   height: 205px;
   line-height: 150%;

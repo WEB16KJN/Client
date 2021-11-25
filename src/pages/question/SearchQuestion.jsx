@@ -10,7 +10,7 @@ export default function SearchQuestion() {
   const [startDate, setStartDate] = useState(DATE_TEMPLATE(new Date()));
   const [endDate, setEndDate] = useState(DATE_TEMPLATE(new Date()));
   return (
-    <div>
+    <StyledSearchQuestion>
       <DateSelector
         startDate={startDate}
         setStartDate={setStartDate}
@@ -27,9 +27,13 @@ export default function SearchQuestion() {
         <StyledLink to="/question/create">1:1 문의하기</StyledLink>
       </StyledSection>
       <QuestionTable />
-    </div>
+    </StyledSearchQuestion>
   );
 }
+
+const StyledSearchQuestion = styled.div`
+  width: 917px;
+`;
 
 const StyledSection = styled.div`
   margin-top: 54px;

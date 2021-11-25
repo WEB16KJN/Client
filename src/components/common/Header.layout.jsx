@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import useResponsive from '../../hooks/useResponsive';
 import { layoutPropTypes } from '../../utils/layoutPropTypes';
+import BaseLayout from './Base.layout';
 
 export default function HeaderLayout({ children }) {
-  const { isBigScreen, isTabletOrDesktop, isMobileOrTablet, isMobile } = useResponsive();
-  if (isBigScreen) return <StyledDesktopWrapper>{children}</StyledDesktopWrapper>;
-  if (isTabletOrDesktop)
-    return <StyledTabletToDesktopWrapper>{children}</StyledTabletToDesktopWrapper>;
-  if (isMobileOrTablet)
-    return <StyledMobileToTabletWrapper>{children}</StyledMobileToTabletWrapper>;
-  if (isMobile) return <StyledMobileWrapper>{children}</StyledMobileWrapper>;
-  return <div>{children}</div>;
+  return (
+    <BaseLayout
+      BigScreen={StyledDesktopWrapper}
+      TabletOrDesktop={StyledTabletToDesktopWrapper}
+      MobileOrTablet={StyledMobileToTabletWrapper}
+      Mobile={StyledMobileWrapper}
+    >
+      {children}
+    </BaseLayout>
+  );
 }
 
 HeaderLayout.propTypes = layoutPropTypes;

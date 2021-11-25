@@ -28,7 +28,7 @@ CreateQuestion.propTypes = {
 
 const StyledCreateQuestion = styled.div`
   box-sizing: border-box;
-  width: 100%;
+  width: 917px;
   display: flex;
   flex-direction: column;
   align-items: center;

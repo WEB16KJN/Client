@@ -7,21 +7,29 @@ import { Outlet } from 'react-router-dom';
 
 export default function Question() {
   return (
-    <StyledWrapper>
+    <StyledQuestion>
       <ProfileCalendar />
-      <SideNav />
-      <div>
-        <Title />
-        <Outlet />
-      </div>
-    </StyledWrapper>
+      <StyledWrapper>
+        <SideNav />
+        <div>
+          <Title />
+          <Outlet />
+        </div>
+      </StyledWrapper>
+    </StyledQuestion>
   );
 }
 
-const StyledWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 150px auto;
-  & > *:first-child {
-    grid-column: 1 / span 2;
+const StyledQuestion = styled.div`
+  display: flex;
+  flex-direction: column;
+  & > * {
+    width: 1084px;
   }
+  align-items: center;
+`;
+
+const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

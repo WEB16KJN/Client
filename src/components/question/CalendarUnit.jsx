@@ -37,7 +37,7 @@ const StyledContentsText = styled.div`
   height: 48px;
   margin-top: 8px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
 `;
 
 const StyledWrapper = styled.div`
@@ -57,4 +57,5 @@ const StyledWrapper = styled.div`
 const StyledNumberText = styled.div`
   font-weight: 300;
   font-size: 40px;
+  width: 25px;
 `;

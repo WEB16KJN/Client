@@ -1,7 +1,7 @@
-import { checkPropTypes } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import useResponsive from '../../hooks/useResponsive';
+import { layoutPropTypes } from '../../utils/layoutPropTypes';
 
 export default function HeaderLayout({ children }) {
   const { isBigScreen, isTabletOrDesktop, isMobileOrTablet, isMobile } = useResponsive();
@@ -14,9 +14,7 @@ export default function HeaderLayout({ children }) {
   return <div>{children}</div>;
 }
 
-HeaderLayout.propTypes = {
-  children: checkPropTypes.any,
-};
+HeaderLayout.propTypes = layoutPropTypes;
 
 const StyledWrapper = styled.div`
   width: 100%;

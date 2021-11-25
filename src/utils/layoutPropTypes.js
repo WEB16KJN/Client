@@ -1,5 +1,5 @@
-import { checkPropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
 export const layoutPropTypes = {
-  children: checkPropTypes.any,
+  children: PropTypes.element,
 };

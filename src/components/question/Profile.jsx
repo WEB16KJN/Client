@@ -11,7 +11,7 @@ export default function Profile() {
       <StyledGreeting>
         <StyledHelloText>안녕하세요:)</StyledHelloText>
         <StyledNameText>{userName} 님,</StyledNameText>
-        <div>두성종이를 즐겨주세요</div>
+        <div>두성종이를 즐겨주세요.</div>
       </StyledGreeting>
     </StyledProfile>
   );
@@ -32,12 +32,12 @@ const StyledProfile = styled.div`
 
 const StyledGreeting = styled.div`
   font-size: 26px;
-  font-weight: 400;
+  font-weight: 700;
   & > *:first-child {
-    font-weight: 700;
+    font-weight: 300;
   }
   & > *:last-child {
-    font-weight: 700;
+    font-weight: 300;
   }
 `;
 

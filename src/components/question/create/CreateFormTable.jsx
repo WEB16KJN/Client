@@ -5,6 +5,8 @@ import { colors } from '../../../styles/color';
 import CreateInput from './CreateInput';
 import FileInput from './FileInput';
 import PropTypes from 'prop-types';
+import Checked from '../../../assets/ic_check_true.svg';
+import Unchecked from '../../../assets/ic_check_false.svg';
 
 const userName = '이수연';
 
@@ -18,13 +20,12 @@ export default function FormTable({ handleQuestionInput }) {
         <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={'title'} />
       </TableCell>
       <TableCell label="비밀글 여부">
-        <label>
-          <StyledSecretCheckBox
-            type="checkbox"
-            onChange={(e) => handleQuestionInput(e, 'isSecret')}
-          />{' '}
-          비밀글
-        </label>
+        <StyledSecretCheckBox
+          id="isSecret"
+          type="checkbox"
+          onChange={(e) => handleQuestionInput(e, 'isSecret')}
+        />
+        <label htmlFor="isSecret">비밀글</label>
       </TableCell>
       <StyledTableRow>
         <TableCell label="성명">
@@ -32,6 +33,7 @@ export default function FormTable({ handleQuestionInput }) {
         </TableCell>
         <TableCell label="핸드폰 번호">
           <CreateInput handleQuestionInput={handleQuestionInput} value={'phoneNumber'} type="tel" />
+          <div>* 자세한 설명을 위한 것으로, 기재하지 않으실 경우 원활한 상담이 어렵습니다. </div>
         </TableCell>
       </StyledTableRow>
       <TableCell label="문의 내용">
@@ -75,6 +77,20 @@ const StyledFormTable = styled.div`
   & > * {
     margin: 23px 0 23px 0;
   }
+  & > *:nth-child(3) {
+    input[type='checkbox'] {
+      display: none;
+    }
+    input[type='checkbox'] + label {
+      cursor: pointer;
+      padding-left: 23px;
+      background-repeat: no-repeat;
+      background-image: ${`url(${Unchecked})`};
+    }
+    input[type='checkbox']:checked + label {
+      background-image: ${`url(${Checked})`};
+    }
+  }
 `;
 
 const StyledUserName = styled.div`
@@ -87,11 +103,16 @@ const StyledTableRow = styled.div`
   display: flex;
   justify-content: space-between;
   & > *:first-child {
-    width: 30%;
+    width: 35%;
   }
   & > *:last-child {
-    width: 70%;
+    width: 65%;
     margin-left: 51px;
+    div:last-child {
+      color: ${colors.gray6};
+      font-size: 12px;
+      margin-top: 6px;
+    }
   }
 `;
 

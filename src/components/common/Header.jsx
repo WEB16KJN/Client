@@ -2,35 +2,44 @@ import React from 'react';
 import styled from 'styled-components';
 import { IcHeart, IcLogout, IcSearch, IcUser, Logo } from './Icon';
 import { colors } from '../../styles/color';
+import HeaderLayout from './Header.layout';
 
 export default function Header() {
   return (
     <StyledWrapper>
-      <StyledNotice>
-        <div>[Notice] 쇼룸 고객을 위한 1:1 맞춤 고객상담 서비스를 소개합니다.</div>
-        <div>
-          <StyledCounselButton>상담신청하러 가기</StyledCounselButton>
-        </div>
-      </StyledNotice>
-      <StyledBanner>
-        <Logo />
-        <StyledMiddleMenu>
-          <div>SPACE</div>
-          <div>PAPER</div>
-          <div>CONTENTS</div>
-          <div>ABOUT US</div>
-        </StyledMiddleMenu>
-        <StyledRightMenu>
-          <StyledSearchBar>
-            <input type="text" placeholder="상품검색" />
-            <IcSearch width="40" height="40" />
-          </StyledSearchBar>
-          <IcHeart width="40" height="40" />
-          <IcUser width="40" height="40" />
-          <IcLogout width="40" height="40" />
-          <div>ENGLISH</div>
-        </StyledRightMenu>
-      </StyledBanner>
+      <HeaderLayout>
+        <StyledNotice>
+          <div>
+            <span className="hide-less-than-mobile">[Notice] 쇼룸 고객을 위한 </span>
+            <span>1:1 맞춤 고객상담 서비스</span>
+            <span className="hide-less-than-mobile">를 소개합니다.</span>
+          </div>
+          <div>
+            <StyledCounselButton>상담신청하러 가기</StyledCounselButton>
+          </div>
+        </StyledNotice>
+      </HeaderLayout>
+      <HeaderLayout>
+        <StyledBanner>
+          <Logo />
+          <StyledMiddleMenu>
+            <div>SPACE</div>
+            <div>PAPER</div>
+            <div>CONTENTS</div>
+            <div>ABOUT US</div>
+          </StyledMiddleMenu>
+          <StyledRightMenu>
+            <StyledSearchBar className="reset-less-than-tablet">
+              <input type="text" placeholder="상품검색" className="hide-less-than-tablet" />
+              <IcSearch width="40" height="40" />
+            </StyledSearchBar>
+            <IcHeart width="40" height="40" />
+            <IcUser width="40" height="40" />
+            <IcLogout width="40" height="40" />
+            <div className="hide-less-than-mobile">ENGLISH</div>
+          </StyledRightMenu>
+        </StyledBanner>
+      </HeaderLayout>
     </StyledWrapper>
   );
 }
@@ -41,6 +50,9 @@ const StyledWrapper = styled.div`
   width: 100%;
   z-index: 999;
   margin-bottom: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledNotice = styled.div`

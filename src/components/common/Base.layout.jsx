@@ -20,8 +20,8 @@ export default function BaseLayout({
 
 BaseLayout.propTypes = {
   children: PropTypes.element,
-  BigScreen: PropTypes.element,
-  TabletOrDesktop: PropTypes.element,
-  MobileOrTablet: PropTypes.element,
-  Mobile: PropTypes.element,
+  BigScreen: PropTypes.elementType,
+  TabletOrDesktop: PropTypes.elementType,
+  MobileOrTablet: PropTypes.elementType,
+  Mobile: PropTypes.elementType,
 };

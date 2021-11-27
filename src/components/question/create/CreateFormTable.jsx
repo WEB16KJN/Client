@@ -41,12 +41,7 @@ export default function CreateFormTable({ handleQuestionInput }) {
       <TableCell label="첨부파일">
         <StyledFileInputs>
           <FileInput
-            addOrDelete="추가 +"
-            handleQuestionInput={handleQuestionInput}
-            value={'files'}
-          />
-          <FileInput
-            addOrDelete="- 삭제"
+            actionContents="추가 +"
             handleQuestionInput={handleQuestionInput}
             value={'files'}
           />

@@ -8,9 +8,8 @@ import PropTypes from 'prop-types';
 import Checked from '../../../assets/ic_check_true.svg';
 import Unchecked from '../../../assets/ic_check_false.svg';
 
-const userName = '이수연';
-
 export default function CreateFormTable({ handleQuestionInput }) {
+  const userName = '이수연';
   return (
     <StyledFormTable>
       <TableCell label="작성자">

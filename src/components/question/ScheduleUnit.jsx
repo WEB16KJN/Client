@@ -4,25 +4,25 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { colors } from '../../styles/color';
 
-export default function CalendarUnit({ calendarContents, calendarNumber }) {
+export default function ScheduleUnit({ scheduleContents, scheduleCount }) {
   return (
-    <StyledCalendarUnit>
+    <StyledScheduleUnit>
       <IcCalendar />
-      <StyledContentsText>{calendarContents}</StyledContentsText>
+      <StyledContents>{scheduleContents}</StyledContents>
       <StyledWrapper>
-        <StyledNumberText>{calendarNumber}</StyledNumberText>
+        <StyledCount>{scheduleCount}</StyledCount>
         <span>건</span>
       </StyledWrapper>
-    </StyledCalendarUnit>
+    </StyledScheduleUnit>
   );
 }
 
-CalendarUnit.propTypes = {
-  calendarContents: PropTypes.string,
-  calendarNumber: PropTypes.string,
+ScheduleUnit.propTypes = {
+  scheduleContents: PropTypes.string,
+  scheduleCount: PropTypes.string,
 };
 
-const StyledCalendarUnit = styled.div`
+const StyledScheduleUnit = styled.div`
   display: flex;
   flex-direction: column;
   border-right: 1px solid #ededed;
@@ -32,7 +32,7 @@ const StyledCalendarUnit = styled.div`
   }
 `;
 
-const StyledContentsText = styled.div`
+const StyledContents = styled.div`
   width: 60px;
   height: 48px;
   margin-top: 8px;
@@ -54,7 +54,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const StyledNumberText = styled.div`
+const StyledCount = styled.div`
   font-weight: 300;
   font-size: 40px;
   width: 25px;

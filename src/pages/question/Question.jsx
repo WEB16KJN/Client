@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Title from '../../components/question/Title';
 import SideNav from '../../components/question/SideNav';
-import ProfileCalendar from '../../components/question/ProfileCalendar';
 import { Outlet } from 'react-router-dom';
+import ProfileScheduleWrapper from '../../components/question/ProfileScheduleWrapper';
 
 export default function Question() {
   return (
     <StyledQuestion>
-      <ProfileCalendar />
+      <ProfileScheduleWrapper />
       <StyledWrapper>
         <SideNav />
         <div>

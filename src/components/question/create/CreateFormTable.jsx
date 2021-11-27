@@ -10,7 +10,7 @@ import Unchecked from '../../../assets/ic_check_false.svg';
 
 const userName = '이수연';
 
-export default function FormTable({ handleQuestionInput }) {
+export default function CreateFormTable({ handleQuestionInput }) {
   return (
     <StyledFormTable>
       <TableCell label="작성자">
@@ -57,7 +57,7 @@ export default function FormTable({ handleQuestionInput }) {
   );
 }
 
-FormTable.propTypes = {
+CreateFormTable.propTypes = {
   handleQuestionInput: PropTypes.func,
 };
 

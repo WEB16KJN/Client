@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { getQuestions } from '../../api/question';
 import DateSelector from '../../components/question/search/DateSelector';
 import QuestionTable from '../../components/question/search/QuestionTable';
 import { colors } from '../../styles/color';
@@ -9,6 +10,18 @@ import { DATE_TEMPLATE } from '../../utils/dateSelector';
 export default function SearchQuestion() {
   const [startDate, setStartDate] = useState(DATE_TEMPLATE(new Date()));
   const [endDate, setEndDate] = useState(DATE_TEMPLATE(new Date()));
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const questions = await getQuestions(startDate, endDate);
+        setQuestions(questions);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [startDate, endDate]);
   return (
     <StyledSearchQuestion>
       <DateSelector
@@ -26,7 +39,7 @@ export default function SearchQuestion() {
         </div>
         <StyledLink to="/question/create">1:1 문의하기</StyledLink>
       </StyledSection>
-      <QuestionTable />
+      <QuestionTable questions={questions} />
     </StyledSearchQuestion>
   );
 }

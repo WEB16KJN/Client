@@ -8,9 +8,8 @@ import PropTypes from 'prop-types';
 import Checked from '../../../assets/ic_check_true.svg';
 import Unchecked from '../../../assets/ic_check_false.svg';
 
-const userName = '이수연';
-
-export default function FormTable({ handleQuestionInput }) {
+export default function CreateFormTable({ handleQuestionInput }) {
+  const userName = '이수연';
   return (
     <StyledFormTable>
       <TableCell label="작성자">
@@ -42,12 +41,7 @@ export default function FormTable({ handleQuestionInput }) {
       <TableCell label="첨부파일">
         <StyledFileInputs>
           <FileInput
-            addOrDelete="추가 +"
-            handleQuestionInput={handleQuestionInput}
-            value={'files'}
-          />
-          <FileInput
-            addOrDelete="- 삭제"
+            actionContents="추가 +"
             handleQuestionInput={handleQuestionInput}
             value={'files'}
           />
@@ -57,7 +51,7 @@ export default function FormTable({ handleQuestionInput }) {
   );
 }
 
-FormTable.propTypes = {
+CreateFormTable.propTypes = {
   handleQuestionInput: PropTypes.func,
 };
 

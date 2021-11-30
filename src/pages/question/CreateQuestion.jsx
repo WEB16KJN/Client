@@ -7,11 +7,7 @@ import PropTypes from 'prop-types';
 export default function CreateQuestion() {
   const [questionInfo, setQuestionInfo] = useState({});
   const handleQuestionInput = (e, value) => {
-    setQuestionInfo((questionInfo) => {
-      const newQuestionInfo = { ...questionInfo };
-      newQuestionInfo[value] = e.target.value;
-      return newQuestionInfo;
-    });
+    setQuestionInfo((questionInfo) => ({ ...questionInfo, [value]: e.target.value }));
   };
   return (
     <StyledCreateQuestion>

@@ -36,7 +36,7 @@ export default function OptionContent({ content }) {
         </li>
       </StyledTitle>
       <StyledOptionsWrapper>{renderOptionCard()}</StyledOptionsWrapper>
-      {content.title === 'baseWeight' && <InputSelf />}
+      {content.title === '평량별' && <InputSelf />}
     </StyledOptionContent>
   );
 }

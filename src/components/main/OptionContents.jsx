@@ -17,7 +17,7 @@ function OptionContents() {
   );
 }
 const StyledOptionContents = styled.div`
-  width: 100%;
+  max-width: 1300px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@ const StyledSearchButton = styled.div`
   text-align: center;
   letter-spacing: -0.05em;
   color: ${colors.white};
-  margin-top: 52px;
+  margin-top: 19px;
   cursor: pointer;
 `;
 export default OptionContents;

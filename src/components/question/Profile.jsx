@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { getUserProfile } from '../../api/user';
 import { colors } from '../../styles/color';
+import ErrorComponent from '../common/Error';
 import { IcMember } from '../common/Icon';
 
 export default function Profile() {
-  const userName = '이수연';
+  useEffect(() => {
+    (async () => {
+      try {
+        const userProfiles = await getUserProfile();
+        const user = userProfiles[0];
+        setUserName(user.name);
+        setGetUserNameError(false);
+      } catch (error) {
+        setGetUserNameError(true);
+        console.log(error);
+      }
+    })();
+  }, []);
+  const [userName, setUserName] = useState('');
+  const [getUserNameError, setGetUserNameError] = useState(false);
+
   return (
     <StyledProfile>
       <IcMember />
@@ -12,6 +29,7 @@ export default function Profile() {
         <StyledHelloText>안녕하세요:)</StyledHelloText>
         <StyledNameText>{userName} 님,</StyledNameText>
         <div>두성종이를 즐겨주세요.</div>
+        {getUserNameError && <ErrorComponent type="request" />}
       </StyledGreeting>
     </StyledProfile>
   );

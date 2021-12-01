@@ -8,7 +8,7 @@ const API_URL = {
     USER_SCHEDULE: BASE_API_URL + '/inquiry/schedule',
     // query: {keyword:'aaa', category:['코티드', '언코티드']} => ?keyword=aaa&category=코티드,언코티드
     PAPER_SEARCH: ({ query }) => BASE_API_URL + `/search?${createQueryString(query)}`,
-    QUESTION_SEARCH: ({ query }) => BASE_API_URL + `/inquiry/list?${createQueryString(query)}`,
+    QUESTION_SEARCH: ({ query }) => BASE_API_URL + `/inquiry?${createQueryString(query)}`,
   },
   POST: {
     // id: 2 => /search/2/like

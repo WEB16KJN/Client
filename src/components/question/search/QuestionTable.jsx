@@ -1,28 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { colors } from '../../../styles/color';
+import { DATE_TEMPLATE } from '../../../utils/dateSelector';
 
-function QuestionTable() {
-  const questions = [
-    { date: '2019-03-12', title: '제목', status: '접수' },
-    { date: '2019-03-12', title: '제목', status: '접수' },
-  ];
-
+function QuestionTable({ questions }) {
   return (
     <StyledGridWrapper>
       <GridHeader>문의날짜</GridHeader>
       <GridHeader>제목</GridHeader>
       <GridHeader>문의 상태</GridHeader>
-      {questions.map((question) => (
-        <>
-          <GridBody>{question.date}</GridBody>
-          <GridBody>{question.title}</GridBody>
-          <GridBody>{question.status}</GridBody>
-        </>
-      ))}
+      {questions.length !== 0 ? (
+        questions.map((question) => (
+          <>
+            <GridBody>{DATE_TEMPLATE(new Date(question.date))}</GridBody>
+            <GridBody>{question.title}</GridBody>
+            <GridBody>{question.status ? '접수' : '미접수'}</GridBody>
+          </>
+        ))
+      ) : (
+        <div>해당 기간 내에 문의 내역이 없습니다.</div>
+      )}
     </StyledGridWrapper>
   );
 }
+
+QuestionTable.propTypes = {
+  questions: PropTypes.array,
+};
 
 const GridHeader = styled.div`
   padding: 18px 0;

@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PageNav from './PageNav';
-import axios from 'axios';
 import { colors } from '../../styles/color';
 import ArticleContent from './ArticleContent';
+import mockArticles from '../../data/main/articles.json';
 function ArticleContents() {
-  const [articles, setArticles] = useState([]);
-  useEffect(() => {
-    const getArticles = async () => {
-      const { data } = await axios.get('http://localhost:4000/articles');
-      setArticles(data);
-    };
-    getArticles();
-  }, []);
+  const { articles } = mockArticles;
   return (
     <StyledArticleContents>
       <StyledSearchResult>

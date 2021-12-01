@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import Proptypes from 'prop-types';
-import axios from 'axios';
 import { colors } from '../../styles/color';
 import InputSelf from './InputSelf';
-export default function OptionContent({ title }) {
+export default function OptionContent({ content }) {
   const [options, setOptions] = useState([]);
+
   useEffect(() => {
-    const getOptions = async () => {
-      const { data } = await axios.get(`http://www.localhost:4000/${title}`);
-      setOptions(data);
-    };
-    getOptions();
+    setOptions(content);
   }, []);
 
   const handleClick = (e) => {
@@ -21,7 +17,7 @@ export default function OptionContent({ title }) {
 
   const renderOptionCard = () => {
     return options.contents?.map((option, i) => {
-      if (title === 'color') {
+      if (content.title === '색상별') {
         return <StyledOptionCard key={i} color={option} />;
       }
       return (
@@ -40,12 +36,12 @@ export default function OptionContent({ title }) {
         </li>
       </StyledTitle>
       <StyledOptionsWrapper>{renderOptionCard()}</StyledOptionsWrapper>
-      {title === 'baseWeight' && <InputSelf />}
+      {content.title === 'baseWeight' && <InputSelf />}
     </StyledOptionContent>
   );
 }
 OptionContent.propTypes = {
-  title: Proptypes.string.isRequired,
+  content: Proptypes.object.isRequired,
 };
 const StyledOptionContent = styled.div`
   color: white;

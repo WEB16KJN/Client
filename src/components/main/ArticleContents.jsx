@@ -23,7 +23,8 @@ function ArticleContents() {
 const StyledArticleContents = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1108px;
+  flex-wrap: wrap;
+  max-width: 1108px;
   margin: 0 auto;
   margin-top: 104px;
 `;
@@ -43,10 +44,11 @@ const StyledSearchResult = styled.div`
   }
 `;
 const StyledArticlesWrapper = styled.div`
-  width: 1108px;
+  width: 100%;
   height: 842px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 8px;
   align-content: space-between;
   justify-content: space-between;
 `;

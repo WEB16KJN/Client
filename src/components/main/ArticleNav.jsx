@@ -12,13 +12,13 @@ function ArticleNav() {
 const StyledArticleNav = styled.div`
   display: flex;
   position: absolute;
-  width: 1212px;
+  max-width: 1212px;
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
 `;
 const StyledEachNav = styled.div`
-  width: 303px;
+  max-width: 303px;
   height: 50px;
   background: ${colors.gray9};
   border: 1px solid #343434;

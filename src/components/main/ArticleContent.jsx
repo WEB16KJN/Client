@@ -29,7 +29,7 @@ export default function ArticleContent({ article }) {
   );
 }
 const StyledArticleContent = styled.div`
-  width: 271px;
+  max-width: 271px;
   height: 395px;
   display: flex;
   flex-direction: column;

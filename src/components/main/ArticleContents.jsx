@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PageNav from './PageNav';
-import axios from 'axios';
 import { colors } from '../../styles/color';
 import ArticleContent from './ArticleContent';
+import mockArticles from '../../data/main/articles.json';
 function ArticleContents() {
-  const [articles, setArticles] = useState([]);
-  useEffect(() => {
-    const getArticles = async () => {
-      const { data } = await axios.get('http://localhost:4000/articles');
-      setArticles(data);
-    };
-    getArticles();
-  }, []);
+  const { articles } = mockArticles;
   return (
     <StyledArticleContents>
       <StyledSearchResult>
@@ -30,7 +23,8 @@ function ArticleContents() {
 const StyledArticleContents = styled.div`
   display: flex;
   flex-direction: column;
-  width: 1108px;
+  flex-wrap: wrap;
+  max-width: 1108px;
   margin: 0 auto;
   margin-top: 104px;
 `;
@@ -50,10 +44,11 @@ const StyledSearchResult = styled.div`
   }
 `;
 const StyledArticlesWrapper = styled.div`
-  width: 1108px;
+  width: 100%;
   height: 842px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 8px;
   align-content: space-between;
   justify-content: space-between;
 `;

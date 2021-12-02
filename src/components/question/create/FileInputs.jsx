@@ -41,8 +41,7 @@ export default function FileInputs({ handleQuestionFileInput }) {
 
   useEffect(() => {
     const files = fileInputInfo.map((info) => info.filePath);
-    handleQuestionFileInput(files);
-    console.log(fileInputInfo);
+    handleQuestionFileInput(files.filter((file) => file !== ''));
   }, [fileInputInfo]);
 
   return (

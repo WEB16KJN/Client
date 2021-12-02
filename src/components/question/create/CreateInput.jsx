@@ -17,4 +17,5 @@ const StyledCreateInput = styled.input`
   height: 45px;
   width: 100%;
   border: 1px solid ${colors.gray4};
+  box-sizing: border-box;
 `;

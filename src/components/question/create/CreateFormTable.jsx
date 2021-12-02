@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import TableCell from './TableCell';
 import { colors } from '../../../styles/color';
 import CreateInput from './CreateInput';
-import FileInput from './FileInput';
 import PropTypes from 'prop-types';
 import Checked from '../../../assets/ic_check_true.svg';
 import Unchecked from '../../../assets/ic_check_false.svg';
+import FileInputs from './FileInputs';
 
-export default function CreateFormTable({ handleQuestionInput }) {
+export default function CreateFormTable({ handleQuestionInput, handleQuestionFileInput }) {
   const userName = '이수연';
+
   return (
     <StyledFormTable>
       <TableCell label="작성자">
@@ -19,11 +20,7 @@ export default function CreateFormTable({ handleQuestionInput }) {
         <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={'title'} />
       </TableCell>
       <TableCell label="비밀글 여부">
-        <StyledSecretCheckBox
-          id="isSecret"
-          type="checkbox"
-          onChange={(e) => handleQuestionInput(e, 'isSecret')}
-        />
+        <input id="isSecret" type="checkbox" onChange={(e) => handleQuestionInput(e, 'isSecret')} />
         <label htmlFor="isSecret">비밀글</label>
       </TableCell>
       <StyledTableRow>
@@ -39,13 +36,7 @@ export default function CreateFormTable({ handleQuestionInput }) {
         <StyledTextarea onChange={(e) => handleQuestionInput(e, 'contents')} />
       </TableCell>
       <TableCell label="첨부파일">
-        <StyledFileInputs>
-          <FileInput
-            actionContents="추가 +"
-            handleQuestionInput={handleQuestionInput}
-            value={'files'}
-          />
-        </StyledFileInputs>
+        <FileInputs handleQuestionFileInput={handleQuestionFileInput} />
       </TableCell>
     </StyledFormTable>
   );
@@ -53,6 +44,7 @@ export default function CreateFormTable({ handleQuestionInput }) {
 
 CreateFormTable.propTypes = {
   handleQuestionInput: PropTypes.func,
+  handleQuestionFileInput: PropTypes.func,
 };
 
 const StyledFormTable = styled.div`
@@ -91,8 +83,6 @@ const StyledUserName = styled.div`
   color: ${colors.gray9};
 `;
 
-const StyledSecretCheckBox = styled.input``;
-
 const StyledTableRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -107,12 +97,6 @@ const StyledTableRow = styled.div`
       font-size: 12px;
       margin-top: 6px;
     }
-  }
-`;
-
-const StyledFileInputs = styled.div`
-  & > *:first-child {
-    margin-bottom: 12px;
   }
 `;
 

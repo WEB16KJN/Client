@@ -36,6 +36,7 @@ export default function Profile() {
 }
 
 const StyledProfile = styled.div`
+  width: 420px;
   margin-right: 22px;
   margin-bottom: 92px;
   display: flex;

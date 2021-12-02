@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import Title from '../../components/question/Title';
 import SideNav from '../../components/question/SideNav';
 import { Outlet } from 'react-router-dom';
-import ProfileScheduleWrapper from '../../components/question/ProfileScheduleWrapper';
+import ProfileScheduleBar from '../../components/question/ProfileScheduleBar';
 
 export default function Question() {
   return (
     <StyledQuestion>
-      <ProfileScheduleWrapper />
+      <StyledProfileScheduleBarWrapper>
+        <ProfileScheduleBar />
+      </StyledProfileScheduleBarWrapper>
       <StyledWrapper>
         <SideNav />
         <div>
@@ -27,6 +29,14 @@ const StyledQuestion = styled.div`
     width: 1084px;
   }
   align-items: center;
+`;
+
+const StyledProfileScheduleBarWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+  height: 299px;
 `;
 
 const StyledWrapper = styled.div`

@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/color';
+import IntroLayout from './Intro.layout';
+
 function Intro() {
   return (
-    <StyledIntro>
+    <IntroLayout>
       <StyledContentWrapper>
         <StyledSubTitle>Smart Search</StyledSubTitle>
         <StyledMainTitle>종이 맞춤 검색</StyledMainTitle>
@@ -13,18 +15,9 @@ function Intro() {
           검색 결과로 각 종이별 다양한 평량과 멀러 및 제작물 샘플을 볼 수 있습니다.
         </StyledDescription>
       </StyledContentWrapper>
-    </StyledIntro>
+    </IntroLayout>
   );
 }
-const StyledIntro = styled.div`
-  width: 100%;
-  height: 414px;
-  display: flex;
-  justify-content: center;
-  padding-top: 138px;
-  padding-bottom: 99px;
-  box-sizing: border-box;
-`;
 const StyledContentWrapper = styled.div`
   width: 513px;
   height: 177px;
@@ -44,7 +37,7 @@ const StyledSubTitle = styled.div`
   color: ${colors.black};
 `;
 const StyledMainTitle = styled.div`
-  width: 362px;
+  width: 462px;
   height: 66px;
   font-family: NanumSquareOTF;
   font-style: normal;
@@ -53,6 +46,7 @@ const StyledMainTitle = styled.div`
   line-height: 66px;
   color: ${colors.gray9};
   letter-spacing: 0.04em;
+  text-align: center;
   margin-top: 18px;
   margin-bottom: 25px;
 `;

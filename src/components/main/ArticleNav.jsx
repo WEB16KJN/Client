@@ -18,7 +18,7 @@ const StyledArticleNav = styled.div`
   transform: translateX(-50%);
 `;
 const StyledEachNav = styled.div`
-  max-width: 303px;
+  width: 303px;
   height: 50px;
   background: ${colors.gray9};
   border: 1px solid #343434;

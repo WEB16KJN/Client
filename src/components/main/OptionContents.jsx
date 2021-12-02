@@ -4,13 +4,13 @@ import { colors } from '../../styles/color';
 import OptionContent from './OptionContent';
 import mockOptions from '../../data/main/options.json';
 function OptionContents() {
-  const { color } = mockOptions;
+  const { group, use, certification, baseWeight, color } = mockOptions;
   return (
     <StyledOptionContents>
-      {/* <OptionContent content={group} /> */}
-      {/* <OptionContent content={use} />
+      <OptionContent content={group} />
+      <OptionContent content={use} />
       <OptionContent content={certification} />
-      <OptionContent content={baseWeight} /> */}
+      <OptionContent content={baseWeight} />
       <OptionContent content={color} />
       <StyledSearchButton>Search Paper</StyledSearchButton>
     </StyledOptionContents>

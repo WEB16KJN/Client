@@ -13,9 +13,15 @@ export default function CreateQuestion() {
       setQuestionInfo((questionInfo) => ({ ...questionInfo, [value]: e.target.value }));
     }
   };
+  const handleQuestionFileInput = (files) => {
+    setQuestionInfo((questionInfo) => ({ ...questionInfo, files: files }));
+  };
   return (
     <StyledCreateQuestion>
-      <CreateFormTable handleQuestionInput={handleQuestionInput} />
+      <CreateFormTable
+        handleQuestionInput={handleQuestionInput}
+        handleQuestionFileInput={handleQuestionFileInput}
+      />
       <BackOrSubmit questionInfo={questionInfo} />
     </StyledCreateQuestion>
   );

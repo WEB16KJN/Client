@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../../styles/color';
 
-export default function FileInput({ handleFileInputAction, id }) {
-  const [file, setFile] = useState('');
-
+export default function FileInput({ handleFileInputAction, id, handleFileValue, fileName }) {
   return (
     <StyledFileInput>
-      <StyledFakeFileInput type="text" value={file} />
-      <StyledFileButton htmlFor="file">찾아보기</StyledFileButton>
+      <StyledFakeFileInput type="text" value={fileName} readOnly />
+      <StyledFileButton htmlFor={id}>찾아보기</StyledFileButton>
       <StyledRealFileInput
         type="file"
-        id="file"
-        value={file}
+        id={id}
         onChange={(e) => {
-          setFile(e.target.value);
+          if (e.target.files.length !== 0) {
+            handleFileValue(e.target.files[0].name, e.target.value, id);
+          }
         }}
       />
       <StyledActionButton onClick={(e) => handleFileInputAction(e, id)}>추가 +</StyledActionButton>
@@ -24,9 +23,10 @@ export default function FileInput({ handleFileInputAction, id }) {
 }
 
 FileInput.propTypes = {
-  actionType: PropTypes.string,
   handleFileInputAction: PropTypes.func,
   id: PropTypes.string,
+  handleFileValue: PropTypes.func,
+  fileName: PropTypes.string,
 };
 
 const StyledFileInput = styled.div`

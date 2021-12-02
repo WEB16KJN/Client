@@ -8,7 +8,7 @@ import Checked from '../../../assets/ic_check_true.svg';
 import Unchecked from '../../../assets/ic_check_false.svg';
 import FileInputs from './FileInputs';
 
-export default function CreateFormTable({ handleQuestionInput }) {
+export default function CreateFormTable({ handleQuestionInput, handleQuestionFileInput }) {
   const userName = '이수연';
 
   return (
@@ -36,7 +36,7 @@ export default function CreateFormTable({ handleQuestionInput }) {
         <StyledTextarea onChange={(e) => handleQuestionInput(e, 'contents')} />
       </TableCell>
       <TableCell label="첨부파일">
-        <FileInputs />
+        <FileInputs handleQuestionFileInput={handleQuestionFileInput} />
       </TableCell>
     </StyledFormTable>
   );

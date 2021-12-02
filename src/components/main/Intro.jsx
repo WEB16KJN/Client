@@ -37,7 +37,7 @@ const StyledSubTitle = styled.div`
   color: ${colors.black};
 `;
 const StyledMainTitle = styled.div`
-  width: 362px;
+  width: 462px;
   height: 66px;
   font-family: NanumSquareOTF;
   font-style: normal;

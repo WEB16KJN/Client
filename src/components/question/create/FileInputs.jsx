@@ -40,8 +40,9 @@ export default function FileInputs({ handleQuestionFileInput }) {
   };
 
   useEffect(() => {
-    const files = fileInputInfo.map((info) => info.filePath);
-    handleQuestionFileInput(files.filter((file) => file !== ''));
+    handleQuestionFileInput(
+      fileInputInfo.map((info) => info.filePath).filter((file) => file !== ''),
+    );
   }, [fileInputInfo]);
 
   return (

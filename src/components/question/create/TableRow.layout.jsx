@@ -23,10 +23,10 @@ const StyledDesktopWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   & > *:first-child {
-    width: 35%;
+    width: 40%;
   }
   & > *:last-child {
-    width: 65%;
+    width: 60%;
     margin-left: 51px;
     & > *:last-child {
       margin-top: 18px;

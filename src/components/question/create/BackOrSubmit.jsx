@@ -4,13 +4,14 @@ import { colors } from '../../../styles/color';
 import PropTypes from 'prop-types';
 import BackOrSubmitLayout from './BackOrSubmit.layout';
 import { postQuestion } from '../../../api/question';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function BackOrSubmit({ questionInfo }) {
+  const navigate = useNavigate();
   const handleSubmit = async () => {
     try {
       await postQuestion(questionInfo);
-      window.location.reload();
+      navigate('/question');
     } catch (error) {
       console.log(error);
     }
@@ -19,9 +20,7 @@ export default function BackOrSubmit({ questionInfo }) {
   return (
     <BackOrSubmitLayout>
       <StyledBackButton to="/question">이전</StyledBackButton>
-      <StyledSubmitButton to="/question" onClick={handleSubmit}>
-        문의하기
-      </StyledSubmitButton>
+      <StyledSubmitButton onClick={handleSubmit}>문의하기</StyledSubmitButton>
     </BackOrSubmitLayout>
   );
 }
@@ -52,10 +51,9 @@ const StyledBackButton = styled(Link)`
   }
 `;
 
-const StyledSubmitButton = styled(Link)`
+const StyledSubmitButton = styled.button`
   width: 240px;
   height: 60px;
-  line-height: 60px;
   font-size: 15px;
   display: block;
   border: 2px solid ${colors.black};
@@ -64,12 +62,5 @@ const StyledSubmitButton = styled(Link)`
   background-color: ${colors.black};
   color: ${colors.white};
   margin-right: 6px;
-  text-decoration: none;
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
+  cursor: pointer;
 `;

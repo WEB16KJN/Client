@@ -17,6 +17,7 @@ function OptionContents() {
   );
 }
 const StyledOptionContents = styled.div`
+  width: 100%;
   max-width: 1300px;
   height: 100%;
   display: flex;

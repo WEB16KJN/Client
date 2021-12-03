@@ -35,7 +35,7 @@ export default function OptionContent({ content }) {
           <span>{options.title}</span>
         </li>
       </StyledTitle>
-      <StyledOptionsWrapper>{renderOptionCard()}</StyledOptionsWrapper>
+      <StyledOptionsWrapper title={options.title}>{renderOptionCard()}</StyledOptionsWrapper>
       {content.title === '평량별' && <InputSelf />}
     </StyledOptionContent>
   );
@@ -48,7 +48,7 @@ const StyledOptionContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: 90%;
   margin-bottom: 33px;
 `;
 const StyledTitle = styled.ul`
@@ -67,6 +67,14 @@ const StyledOptionsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+
+  @media (max-width: 768px) {
+    width: ${({ title }) => {
+      return title === '색상별' ? '400px' : null;
+    }};
+    flex-grow: 0;
+    margin-right: auto;
+  }
 `;
 const StyledOptionCard = styled.div`
   width: 110px;

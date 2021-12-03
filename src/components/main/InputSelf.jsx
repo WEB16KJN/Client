@@ -5,13 +5,16 @@ import { IcCheckRoundTrue } from '../common/Icon';
 export default function InputSelf() {
   return (
     <StyledInputSelf>
-      <IcCheckRoundTrue />
-      <span>직접입력</span>
+      <div>
+        <IcCheckRoundTrue />
+        <span>직접입력</span>
+        <StyledInputRange>
+          <input type="number" />g
+        </StyledInputRange>
+      </div>
+
       <StyledInputRange>
-        <input type="number" />g
-      </StyledInputRange>
-      ~
-      <StyledInputRange>
+        <div>~</div>
         <input type="number" />g
       </StyledInputRange>
     </StyledInputSelf>
@@ -19,11 +22,18 @@ export default function InputSelf() {
 }
 const StyledInputSelf = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   color: ${colors.gray5};
-  flex-grow: 1;
-  height: 55px;
+  width: 350px;
+  height: 100%;
   box-sizing: border-box;
+  flex-grow: 1;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
   svg {
     width: 27px;
     height: 27px;
@@ -31,14 +41,24 @@ const StyledInputSelf = styled.div`
   }
   span {
     margin-left: 10px;
+    margin-right: 20px;
     flex-basis: 59px;
     flex-shrink: 0;
+  }
+  @media (max-width: 1100px) {
+    justify-content: flex-end;
+    margin-right: 10px;
   }
 `;
 const StyledInputRange = styled.div`
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin-bottom: 7px;
+  div {
+    width: 9px;
+    margin-left: 12px;
+    margin-right: 15px;
+  }
   input {
     width: 110px;
     height: 47px;

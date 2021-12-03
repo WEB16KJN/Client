@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { IcHeart, IcLogout, IcSearch, IcUser, Logo } from './Icon';
 import { colors } from '../../styles/color';
 import HeaderLayout from './Header.layout';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <StyledWrapper>
       <HeaderLayout>
@@ -15,7 +17,9 @@ export default function Header() {
             <span className="hide-less-than-mobile">를 소개합니다.</span>
           </div>
           <div>
-            <StyledCounselButton>상담신청하러 가기</StyledCounselButton>
+            <StyledCounselButton onClick={() => navigate('/question/create')}>
+              상담신청하러 가기
+            </StyledCounselButton>
           </div>
         </StyledNotice>
       </HeaderLayout>
@@ -76,6 +80,7 @@ const StyledCounselButton = styled.div`
   width: 126px;
   font-size: 11px;
   box-sizing: border-box;
+  cursor: pointer;
 `;
 
 const StyledBanner = styled.div`

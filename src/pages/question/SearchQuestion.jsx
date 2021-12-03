@@ -50,13 +50,15 @@ const StyledSearchQuestion = styled.div`
 
 const StyledSection = styled.div`
   margin-top: 54px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   color: ${colors.gray5};
   font-size: 20px;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 
   & b {
     color: ${colors.black};

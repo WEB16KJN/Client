@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/color';
 import { DATE_INTERVAL, DATE_TEMPLATE } from '../../../utils/dateSelector';
 import { IcSearchBig } from '../../common/Icon';
+import DateSelectorLayout from './DateSelector.layout';
 
 function DateSelector({ startDate, setStartDate, endDate, setEndDate }) {
   const [selectedOption, setSelectedOption] = useState(DATE_INTERVAL[0].index);
@@ -28,23 +29,25 @@ function DateSelector({ startDate, setStartDate, endDate, setEndDate }) {
   };
 
   return (
-    <StyledGridWrapper>
-      {DATE_INTERVAL.map((option) => (
-        <StyledOption
-          key={option.index}
-          onClick={() => {
-            handleOptionChange(option);
-          }}
-          selected={option.index === selectedOption}
-        >
-          {option.display}
-        </StyledOption>
-      ))}
-      <div></div>
-      <StyledDateInput type="date" value={startDate} onChange={handleStartDateChange} />
-      <StyledDateInput type="date" value={endDate} onChange={handleEndDateChange} />
-      <IcSearchBig width="46" />
-    </StyledGridWrapper>
+    <DateSelectorLayout>
+      <StyledGridWrapper>
+        {DATE_INTERVAL.map((option) => (
+          <StyledOption
+            key={option.index}
+            onClick={() => {
+              handleOptionChange(option);
+            }}
+            selected={option.index === selectedOption}
+          >
+            {option.display}
+          </StyledOption>
+        ))}
+        <div></div>
+        <StyledDateInput type="date" value={startDate} onChange={handleStartDateChange} />
+        <StyledDateInput type="date" value={endDate} onChange={handleEndDateChange} />
+        <IcSearchBig width="46" />
+      </StyledGridWrapper>
+    </DateSelectorLayout>
   );
 }
 
@@ -77,13 +80,13 @@ const StyledOption = styled.div`
 
 const StyledGridWrapper = styled.div`
   background-color: ${colors.gray1};
-  display: grid;
-  grid-template-columns: repeat(6, 40px) 68px 2fr 2fr 72px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding-left: 60px;
+  padding: 0 60px;
+  flex-wrap: wrap;
   gap: 26px;
-  height: 73px;
 `;
 
 export default DateSelector;

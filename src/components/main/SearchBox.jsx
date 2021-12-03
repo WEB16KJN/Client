@@ -25,7 +25,7 @@ const StyledSearchBox = styled.div`
   align-items: center;
 
   & > input {
-    width: 176px;
+    width: 80%;
     height: 15px;
     font-family: NanumSquareOTF;
     font-style: normal;
@@ -34,9 +34,14 @@ const StyledSearchBox = styled.div`
     line-height: 15px;
     border: none;
     outline: none;
-    color: ${colors.gray3};
+    color: ${colors.black};
     margin-left: 51px;
   }
+
+  & > input::placeholder {
+    color: ${colors.gray3};
+  }
+
   &:nth-child(2) {
     display: none;
   }

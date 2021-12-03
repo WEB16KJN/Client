@@ -20,7 +20,7 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
         <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={'title'} />
       </TableCell>
       <TableCell label="비밀글 여부">
-        <input id="isSecret" type="checkbox" onChange={(e) => handleQuestionInput(e, 'isSecret')} />
+        <input id="isSecret" type="checkbox" onChange={(e) => handleQuestionInput(e, 'secret')} />
         <label htmlFor="isSecret">비밀글</label>
       </TableCell>
       <TableRowLayout>
@@ -28,12 +28,12 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
           <CreateInput type="text" handleQuestionInput={handleQuestionInput} value={'name'} />
         </TableCell>
         <TableCell label="핸드폰 번호">
-          <CreateInput handleQuestionInput={handleQuestionInput} value={'phoneNumber'} type="tel" />
+          <CreateInput handleQuestionInput={handleQuestionInput} value={'phone'} type="tel" />
           <div>* 자세한 설명을 위한 것으로, 기재하지 않으실 경우 원활한 상담이 어렵습니다. </div>
         </TableCell>
       </TableRowLayout>
       <TableCell label="문의 내용">
-        <StyledTextarea onChange={(e) => handleQuestionInput(e, 'contents')} />
+        <StyledTextarea onChange={(e) => handleQuestionInput(e, 'content')} />
       </TableCell>
       <TableCell label="첨부파일">
         <FileInputs handleQuestionFileInput={handleQuestionFileInput} />

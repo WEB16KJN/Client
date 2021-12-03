@@ -11,4 +11,10 @@ export const getQuestions = async (startDate, endDate) => {
   throw response.json.message;
 };
 
-// export const postQuestion = ...
+export const postQuestion = async (body) => {
+  const response = await requestHandler.post(API_URL.POST.QUESTION_CREATE, body);
+  const { status, json } = response;
+
+  if (status === 200) return json.data;
+  throw response.json.message;
+};

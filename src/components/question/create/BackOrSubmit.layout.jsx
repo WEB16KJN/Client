@@ -18,7 +18,9 @@ export default function BackOrSubmitLayout({ children }) {
 
 BackOrSubmitLayout.propTypes = layoutPropTypes;
 
-const StyledDesktopWrapper = styled.div``;
+const StyledDesktopWrapper = styled.div`
+  display: flex;
+`;
 
 const StyledTabletToDesktopWrapper = styled(StyledDesktopWrapper)``;
 

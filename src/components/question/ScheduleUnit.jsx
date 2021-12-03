@@ -19,7 +19,7 @@ export default function ScheduleUnit({ scheduleContents, scheduleCount }) {
 
 ScheduleUnit.propTypes = {
   scheduleContents: PropTypes.string,
-  scheduleCount: PropTypes.string,
+  scheduleCount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 const StyledScheduleUnit = styled.div`

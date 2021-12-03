@@ -11,7 +11,7 @@ const postFetcher = async (url, body) => {
     headers: {
       'Content-Type': 'application/json',
     },
-    credentials: 'include',
+    mode: 'cors',
     body: JSON.stringify(body),
   });
 

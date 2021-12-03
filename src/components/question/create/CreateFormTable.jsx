@@ -20,7 +20,7 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
         <CreateInput
           type="text"
           handleQuestionInput={handleQuestionInput}
-          value={'title'}
+          value="title"
           placeholder="제목을 입력해 주세요."
         />
       </TableCell>
@@ -33,14 +33,14 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
           <CreateInput
             type="text"
             handleQuestionInput={handleQuestionInput}
-            value={'name'}
+            value="name"
             placeholder="성명을 입력해 주세요."
           />
         </TableCell>
         <TableCell label="핸드폰 번호">
           <CreateInput
             handleQuestionInput={handleQuestionInput}
-            value={'phone'}
+            value="phone"
             type="tel"
             placeholder="ex) 010-1234-1234"
           />

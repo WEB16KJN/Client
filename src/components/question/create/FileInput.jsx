@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../../styles/color';
+import FileInputLayout from './FileInput.layout';
 
 export default function FileInput({ handleFileInputAction, id, handleFileValue, fileName }) {
   return (
-    <StyledFileInput>
+    <FileInputLayout>
       <StyledFakeFileInput type="text" value={fileName} readOnly />
       <StyledFileButton htmlFor={id}>찾아보기</StyledFileButton>
       <StyledRealFileInput
@@ -18,7 +19,7 @@ export default function FileInput({ handleFileInputAction, id, handleFileValue, 
         }}
       />
       <StyledActionButton onClick={(e) => handleFileInputAction(e, id)}>추가 +</StyledActionButton>
-    </StyledFileInput>
+    </FileInputLayout>
   );
 }
 
@@ -29,10 +30,6 @@ FileInput.propTypes = {
   fileName: PropTypes.string,
 };
 
-const StyledFileInput = styled.div`
-  display: flex;
-`;
-
 const StyledFakeFileInput = styled.input`
   height: 45px;
   width: 100%;
@@ -42,6 +39,8 @@ const StyledFakeFileInput = styled.input`
 
 const StyledFileButton = styled.label`
   width: 159px;
+  flex-basis: 159px;
+  flex-shrink: 0;
   height: 45px;
   font-size: 13px;
   border-color: ${colors.black};
@@ -59,11 +58,14 @@ const StyledRealFileInput = styled.input`
   padding: 0;
   overflow: hidden;
   border: 0;
+  display: none;
 `;
 
 const StyledActionButton = styled.button`
   width: 159px;
   height: 45px;
+  flex-basis: 159px;
+  flex-shrink: 0;
   font-size: 13px;
   border-color: ${colors.black};
   background-color: ${colors.white};

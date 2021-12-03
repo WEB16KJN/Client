@@ -3,21 +3,21 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { colors } from '../../../styles/color';
 
-export default function FormCell({ label, children }) {
+export default function TableCell({ label, children }) {
   return (
-    <StyledFormCell>
+    <StyledTableCell>
       <StyledLabel>{label}</StyledLabel>
       <StyledChildren>{children}</StyledChildren>
-    </StyledFormCell>
+    </StyledTableCell>
   );
 }
 
-FormCell.propTypes = {
+TableCell.propTypes = {
   label: PropTypes.string,
   children: PropTypes.any,
 };
 
-const StyledFormCell = styled.div`
+const StyledTableCell = styled.div`
   display: flex;
   align-items: center;
 `;

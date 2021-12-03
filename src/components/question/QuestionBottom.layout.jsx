@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import { layoutPropTypes } from '../../utils/layoutPropTypes';
 import BaseLayout from '../common/Base.layout';
 
-export default function SliderLayout({ children, StyledMobileToTabletWrapper }) {
+export default function QuestionBottomLayout({ children }) {
   return (
     <BaseLayout
       BigScreen={StyledDesktopWrapper}
@@ -16,33 +16,28 @@ export default function SliderLayout({ children, StyledMobileToTabletWrapper }) 
   );
 }
 
-SliderLayout.propTypes = {
-  children: PropTypes.element,
-  StyledMobileToTabletWrapper: PropTypes.element,
-};
+QuestionBottomLayout.propTypes = layoutPropTypes;
 
 const StyledDesktopWrapper = styled.div`
-  width: 100%;
-  height: 205px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  & > *:first-child {
-    visibility: hidden;
-  }
-  & > *:last-child {
-    visibility: hidden;
-  }
 `;
 
 const StyledTabletToDesktopWrapper = styled(StyledDesktopWrapper)``;
 
-const StyledMobileWrapper = styled.div`
+const StyledMobileToTabletWrapper = styled(StyledTabletToDesktopWrapper)`
+  width: 100vw;
   & > *:first-child {
-    visibility: hidden;
+    display: none;
   }
   & > *:last-child {
-    visibility: hidden;
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100vw;
+    & > *:last-child {
+      width: 100%;
+    }
   }
 `;
+
+const StyledMobileWrapper = styled(StyledMobileToTabletWrapper)``;

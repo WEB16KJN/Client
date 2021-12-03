@@ -25,6 +25,8 @@ const StyledTableCell = styled.div`
 const StyledLabel = styled.span`
   width: 130px;
   color: ${colors.gray6};
+  flex-basis: 130px;
+  flex-shrink: 0;
 `;
 
 const StyledChildren = styled.div`

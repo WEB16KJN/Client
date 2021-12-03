@@ -28,5 +28,5 @@ const StyledLabel = styled.span`
 `;
 
 const StyledChildren = styled.div`
-  width: calc(100% - 130px);
+  width: 100%;
 `;

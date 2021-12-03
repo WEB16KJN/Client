@@ -75,4 +75,5 @@ const StyledTextarea = styled.textarea`
   resize: none;
   border: 1px solid ${colors.gray4};
   padding: 20px 16px;
+  box-sizing: border-box;
 `;

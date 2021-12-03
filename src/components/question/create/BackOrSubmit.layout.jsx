@@ -27,7 +27,8 @@ const StyledMobileToTabletWrapper = styled(StyledTabletToDesktopWrapper)``;
 const StyledMobileWrapper = styled(StyledMobileToTabletWrapper)`
   display: flex;
   width: 100%;
-  margin: 0 16px;
+  margin: 80px 16px 0 16px;
+
   & > * {
     flex-grow: 1;
   }

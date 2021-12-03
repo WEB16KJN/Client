@@ -60,6 +60,9 @@ const StyledTabletToDesktopWrapper = styled(StyledDesktopWrapper)``;
 const StyledMobileToTabletWrapper = styled(StyledTabletToDesktopWrapper)``;
 
 const StyledMobileWrapper = styled(StyledMobileToTabletWrapper)`
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
   & > *:nth-child(2),
   & > *:nth-child(5),
   & > *:nth-child(6) {

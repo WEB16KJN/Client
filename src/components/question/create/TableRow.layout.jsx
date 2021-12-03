@@ -34,6 +34,8 @@ const StyledDesktopWrapper = styled.div`
         color: ${colors.gray6};
         font-size: 12px;
         margin-top: 6px;
+        width: 100%;
+        text-align: center;
       }
     }
   }
@@ -52,7 +54,21 @@ const StyledMobileToTabletWrapper = styled(StyledTabletToDesktopWrapper)`
     width: 100%;
     margin-left: 0;
     margin-top: 23px;
+    & > *:last-child {
+      & > *:last-child {
+        line-height: 15px;
+        text-align: left;
+      }
+    }
   }
 `;
 
-const StyledMobileWrapper = styled(StyledMobileToTabletWrapper)``;
+const StyledMobileWrapper = styled(StyledMobileToTabletWrapper)`
+  & > *:last-child {
+    & > *:last-child {
+      & > *:last-child {
+        line-height: 15px;
+      }
+    }
+  }
+`;

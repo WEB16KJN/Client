@@ -13,10 +13,12 @@ export default function InputSelf() {
         </StyledInputRange>
       </div>
 
-      <StyledInputRange>
-        <div>~</div>
-        <input type="number" />g
-      </StyledInputRange>
+      <div>
+        <StyledInputRange>
+          <div>~</div>
+          <input type="number" />g
+        </StyledInputRange>
+      </div>
     </StyledInputSelf>
   );
 }
@@ -48,6 +50,16 @@ const StyledInputSelf = styled.div`
   @media (max-width: 1100px) {
     justify-content: flex-end;
     margin-right: 10px;
+  }
+  @media (max-width: 500px) {
+    height: 100px;
+    justify-content: flex-start;
+    flex-grow: 0;
+    & > div:first-child,
+    & > div:last-child {
+      width: 250px;
+      justify-content: flex-end;
+    }
   }
 `;
 const StyledInputRange = styled.div`

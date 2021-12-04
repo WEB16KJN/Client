@@ -50,10 +50,17 @@ const StyledOptionContent = styled.div`
   justify-content: space-between;
   width: 90%;
   margin-bottom: 33px;
+  flex-wrap: wrap;
+
+  @media (max-width: 500px) {
+    width: 95%;
+    justify-content: flex-start;
+  }
 `;
 const StyledTitle = styled.ul`
   height: 20px;
   list-style: inside;
+  padding-left: 5px;
 
   li {
     width: 100px;
@@ -61,6 +68,10 @@ const StyledTitle = styled.ul`
   li > span {
     position: relative;
     left: -6px;
+  }
+  @media (max-width: 500px) {
+    margin-bottom: 16px;
+    padding-left: 5px;
   }
 `;
 const StyledOptionsWrapper = styled.div`

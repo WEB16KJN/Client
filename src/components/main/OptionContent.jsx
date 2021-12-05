@@ -52,7 +52,12 @@ const StyledOptionContent = styled.div`
   margin-bottom: 33px;
   flex-wrap: wrap;
 
+  @media (max-width: 1100px) {
+    flex-wrap: nowrap;
+  }
+
   @media (max-width: 500px) {
+    flex-wrap: wrap;
     width: 95%;
     justify-content: flex-start;
   }

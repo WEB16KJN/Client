@@ -48,13 +48,17 @@ const StyledInputSelf = styled.div`
     flex-shrink: 0;
   }
   @media (max-width: 1100px) {
-    justify-content: flex-end;
     margin-right: 10px;
+    & > div {
+      width: 250px;
+      justify-content: flex-end;
+    }
   }
   @media (max-width: 500px) {
     height: 100px;
     justify-content: flex-start;
     flex-grow: 0;
+
     & > div:first-child,
     & > div:last-child {
       width: 250px;

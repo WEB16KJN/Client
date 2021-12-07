@@ -35,5 +35,7 @@ const StyledTabletToDesktopWrapper = styled(StyledDesktopWrapper)`
   height: 1275px;
 `;
 
-const StyledMobileToTabletWrapper = styled(StyledTabletToDesktopWrapper)``;
+const StyledMobileToTabletWrapper = styled(StyledTabletToDesktopWrapper)`
+  height: 1886px;
+`;
 const StyledMobileWrapper = styled(StyledMobileToTabletWrapper)``;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import TableCell from './TableCell';
 import { colors } from '../../../styles/color';
@@ -15,6 +15,14 @@ export default function CreateFormTable({
   handleQuestionTelInput,
 }) {
   const userName = '이수연';
+  const [isCorrectContent, setIsCorrectContent] = useState(true);
+  const checkContentLength = (content) => {
+    if (content.length > 200) {
+      setIsCorrectContent(false);
+    } else {
+      setIsCorrectContent(true);
+    }
+  };
 
   return (
     <CreateFormTableLayout>
@@ -53,10 +61,16 @@ export default function CreateFormTable({
         </TableCell>
       </TableRowLayout>
       <TableCell label="문의 내용">
-        <StyledTextarea
-          onChange={(e) => handleQuestionInput(e, 'content')}
-          placeholder="문의하실 내용을 입력해 주세요."
-        />
+        <StyledTextareaWrapper isCorrectContent={isCorrectContent}>
+          <StyledTextarea
+            onChange={(e) => {
+              checkContentLength(e.target.value);
+              handleQuestionInput(e, 'content');
+            }}
+            placeholder="문의하실 내용을 입력해 주세요."
+          />
+          <div>200자 내로 작성해 주세요.</div>
+        </StyledTextareaWrapper>
       </TableCell>
       <TableCell label="첨부파일">
         <FileInputs handleQuestionFileInput={handleQuestionFileInput} />
@@ -73,6 +87,18 @@ CreateFormTable.propTypes = {
 
 const StyledUserName = styled.div`
   color: ${colors.gray9};
+`;
+
+const StyledTextareaWrapper = styled.div`
+  position: relative;
+  & > *:last-child {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    color: ${colors.red};
+    position: absolute;
+    display: ${(props) => (props.isCorrectContent ? 'none' : 'block')};
+  }
 `;
 
 const StyledTextarea = styled.textarea`

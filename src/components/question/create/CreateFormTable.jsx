@@ -7,8 +7,13 @@ import PropTypes from 'prop-types';
 import FileInputs from './FileInputs';
 import TableRowLayout from './TableRow.layout';
 import CreateFormTableLayout from './CreateFormTable.layout';
+import TelInput from './TelInput';
 
-export default function CreateFormTable({ handleQuestionInput, handleQuestionFileInput }) {
+export default function CreateFormTable({
+  handleQuestionInput,
+  handleQuestionFileInput,
+  handleQuestionTelInput,
+}) {
   const userName = '이수연';
 
   return (
@@ -18,7 +23,7 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
       </TableCell>
       <TableCell label="제목">
         <CreateInput
-          type="text"
+          inputType="text"
           handleQuestionInput={handleQuestionInput}
           value="title"
           placeholder="제목을 입력해 주세요."
@@ -31,17 +36,17 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
       <TableRowLayout>
         <TableCell label="성명">
           <CreateInput
-            type="text"
+            inputType="text"
             handleQuestionInput={handleQuestionInput}
             value="name"
             placeholder="성명을 입력해 주세요."
           />
         </TableCell>
         <TableCell label="핸드폰 번호">
-          <CreateInput
-            handleQuestionInput={handleQuestionInput}
+          <TelInput
+            handleQuestionTelInput={handleQuestionTelInput}
             value="phone"
-            type="tel"
+            inputType="tel"
             placeholder="ex) 010-1234-1234"
           />
           <div>* 자세한 설명을 위한 것으로, 기재하지 않으실 경우 원활한 상담이 어렵습니다. </div>
@@ -63,6 +68,7 @@ export default function CreateFormTable({ handleQuestionInput, handleQuestionFil
 CreateFormTable.propTypes = {
   handleQuestionInput: PropTypes.func,
   handleQuestionFileInput: PropTypes.func,
+  handleQuestionTelInput: PropTypes.func,
 };
 
 const StyledUserName = styled.div`

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/color';
 import PropTypes from 'prop-types';
 
-export default function CreateInput({ value, handleQuestionInput, type, placeholder }) {
+export default function CreateInput({ value, handleQuestionInput, inputType, placeholder }) {
   return (
     <StyledCreateInput
-      type={type}
+      type={inputType}
       onChange={(e) => handleQuestionInput(e, value)}
       placeholder={placeholder}
     />
@@ -16,7 +16,7 @@ export default function CreateInput({ value, handleQuestionInput, type, placehol
 CreateInput.propTypes = {
   value: PropTypes.string,
   handleQuestionInput: PropTypes.func,
-  type: PropTypes.string,
+  inputType: PropTypes.string,
   placeholder: PropTypes.string,
 };
 

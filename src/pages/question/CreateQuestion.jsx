@@ -13,9 +13,11 @@ export default function CreateQuestion() {
     content: '',
     file: [],
   });
-  const handleQuestionInput = (e, value) => {
+  const handleQuestionInput = (e, value, tel) => {
     if (value === 'secret') {
       setQuestionInfo((questionInfo) => ({ ...questionInfo, [value]: e.target.checked }));
+    } else if (value === 'phone') {
+      setQuestionInfo((questionInfo) => ({ ...questionInfo, [value]: tel }));
     } else {
       setQuestionInfo((questionInfo) => ({ ...questionInfo, [value]: e.target.value }));
     }
@@ -23,11 +25,15 @@ export default function CreateQuestion() {
   const handleQuestionFileInput = (files) => {
     setQuestionInfo((questionInfo) => ({ ...questionInfo, file: files }));
   };
+  const handleQuestionTelInput = (tel) => {
+    setQuestionInfo((questionInfo) => ({ ...questionInfo, phone: tel }));
+  };
   return (
     <StyledCreateQuestion>
       <CreateFormTable
         handleQuestionInput={handleQuestionInput}
         handleQuestionFileInput={handleQuestionFileInput}
+        handleQuestionTelInput={handleQuestionTelInput}
       />
       <BackOrSubmit questionInfo={questionInfo} />
     </StyledCreateQuestion>

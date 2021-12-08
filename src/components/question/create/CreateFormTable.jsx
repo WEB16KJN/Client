@@ -97,6 +97,7 @@ const StyledTextareaWrapper = styled.div`
     line-height: 14px;
     color: ${colors.red};
     position: absolute;
+    top: 142px;
     display: ${(props) => (props.isCorrectContent ? 'none' : 'block')};
   }
 `;

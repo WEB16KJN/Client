@@ -1,5 +1,6 @@
 {
   "group": {
+    "api": "category",
     "title": "종류",
     "contents": [
       "코티드",
@@ -56,6 +57,7 @@
     "contents": ["FSC", "재생지", "비목재지", "기타", "없음"]
   },
   "baseWeight": {
+    "api": "weight",
     "title": "평량별",
     "contents": ["100g 이하", "100g ~ 200g", "200g ~ 300g", "300g 이상"]
   },

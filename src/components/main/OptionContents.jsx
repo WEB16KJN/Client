@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/color';
 import OptionContent from './OptionContent';
 import mockOptions from '../../data/main/options.json';
+import { Context } from '../../pages/Main';
 function OptionContents() {
   const { group, use, certification, baseWeight, color } = mockOptions;
+  const { dispatch } = useContext(Context);
   return (
     <StyledOptionContents>
-      <OptionContent content={group} />
+      <OptionContent content={group} dispatch={dispatch} />
       <OptionContent content={use} />
       <OptionContent content={certification} />
-      <OptionContent content={baseWeight} />
+      <OptionContent content={baseWeight} dispatch={dispatch} />
       <OptionContent content={color} />
       <StyledSearchButton>Search Paper</StyledSearchButton>
     </StyledOptionContents>

@@ -1,5 +1,6 @@
 export const SEARCH_PAPER = 'SEARCH_PAPER';
 export const UPDATE_SEARCH_OPTIONS = 'UPDATE_SEARCH_OPTIONS';
+export const UPDATE_KEYWORD = 'UPDATE_KEYWORD';
 export const ADD_INPUT_SELF = 'ADD_INPUT_SELF';
 
 export const initialOptions = {
@@ -35,8 +36,11 @@ export const mainReducer = (state = initialOptions, action) => {
         inputSelf: action.option,
       };
 
-    case SEARCH_PAPER:
-      return state;
+    case UPDATE_KEYWORD:
+      return {
+        ...state,
+        keyword: action.keyword,
+      };
     default:
       return state;
   }

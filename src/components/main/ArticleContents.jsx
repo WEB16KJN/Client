@@ -22,7 +22,7 @@ function ArticleContents() {
           <ArticleContent article={article} key={article.id} />
         ))}
       </StyledArticlesWrapper>
-      <PageNav />
+      <PageNav resultCount={resultCount} />
     </StyledArticleContents>
   );
 }

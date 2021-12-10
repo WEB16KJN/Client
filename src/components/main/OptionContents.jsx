@@ -5,24 +5,13 @@ import OptionContent from './OptionContent';
 import mockOptions from '../../data/main/options.json';
 import { Context } from '../../pages/Main';
 import { getPapers } from '../../api/paper';
+import createQuery from '../../utils/createQuery';
 function OptionContents() {
   const { group, use, certification, baseWeight, color } = mockOptions;
   const { stateOptions, articlesDispatch } = useContext(Context);
 
-  const createQuery = () => {
-    const query = { ...stateOptions };
-    query.weight.push(query.inputSelf);
-
-    Object.keys(query).forEach((key) => {
-      query[key].length <= 0 && delete query[key];
-      key === 'inputSelf' && delete query[key];
-    });
-
-    return query;
-  };
-
   const searchPaper = async () => {
-    const query = createQuery();
+    const query = createQuery(stateOptions);
     const result = await getPapers(query);
 
     articlesDispatch({ type: 'UPDATE_ARTICLES', result });

@@ -24,9 +24,10 @@ export default function OptionContent({ content }) {
 
   const handleClick = (e) => {
     changeColor(e);
+
     const option = {
       api: content.api,
-      selected: e.target.innerText,
+      selected: e.target.innerText.replaceAll(' ', ''),
     };
 
     optionsDispatch({ type: 'UPDATE_SEARCH_OPTIONS', option });

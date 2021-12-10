@@ -1,6 +1,6 @@
 const createQuery = (state) => {
   const query = { ...state };
-  query.weight.push(query.inputSelf);
+  query.inputSelf && query.weight.push(query.inputSelf);
 
   Object.keys(query).forEach((key) => {
     query[key].length <= 0 && delete query[key];

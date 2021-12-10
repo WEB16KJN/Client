@@ -1,4 +1,4 @@
-export const UPDATE_ARTICLES = 'UPDATE_ARTICLES';
+const UPDATE_ARTICLES = 'UPDATE_ARTICLES';
 
 export const articlesReducer = (state, action) => {
   switch (action.type) {

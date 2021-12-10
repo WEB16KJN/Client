@@ -1,7 +1,6 @@
-export const SEARCH_PAPER = 'SEARCH_PAPER';
-export const UPDATE_SEARCH_OPTIONS = 'UPDATE_SEARCH_OPTIONS';
-export const UPDATE_KEYWORD = 'UPDATE_KEYWORD';
-export const ADD_INPUT_SELF = 'ADD_INPUT_SELF';
+const UPDATE_SEARCH_OPTIONS = 'UPDATE_SEARCH_OPTIONS';
+const UPDATE_KEYWORD = 'UPDATE_KEYWORD';
+const ADD_INPUT_SELF = 'ADD_INPUT_SELF';
 
 export const initialOptions = {
   keyword: '',

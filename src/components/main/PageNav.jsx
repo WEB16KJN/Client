@@ -23,7 +23,7 @@ export default function PageNav({ resultCount }) {
 }
 
 PageNav.propTypes = {
-  resultCount: Proptype.element.isRequired,
+  resultCount: Proptype.any.isRequired,
 };
 
 const StyledPageNav = styled.div`

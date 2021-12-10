@@ -9,14 +9,14 @@ function ArticleContents() {
     stateArticles: { articles, resultCount },
   } = useContext(Context);
 
-  const renderResultCounts = () =>
+  const renderResultCounts =
     typeof resultCount === 'string'
       ? resultCount
       : `검색한 결과 총 ${resultCount}개의 상품이 있습니다.`;
 
   return (
     <StyledArticleContents>
-      <StyledSearchResult>{renderResultCounts()}</StyledSearchResult>
+      <StyledSearchResult>{renderResultCounts}</StyledSearchResult>
       <StyledArticlesWrapper>
         {articles.map((article) => (
           <ArticleContent article={article} key={article.id} />

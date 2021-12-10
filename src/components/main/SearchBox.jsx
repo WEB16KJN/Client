@@ -32,7 +32,7 @@ function SearchBox() {
         placeholder="원하시는 검색어를 입력해보세요."
       />
       <input type="submit" style={{ display: 'none' }} />
-      <IcSearchBig />
+      <IcSearchBig onClick={searchPaper} />
     </StyledSearchBox>
   );
 }

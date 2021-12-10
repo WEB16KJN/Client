@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/color';
 import { IcCheckRoundTrue } from '../common/Icon';
+import { Context } from '../../pages/Main';
 export default function InputSelf() {
+  const { optionsDispatch } = useContext(Context);
+  const [inputSelf, setInputSelf] = useState({
+    low: '',
+    high: '',
+  });
+
+  const changeInput = (e, input) => {
+    setInputSelf({
+      ...inputSelf,
+      [input]: e.target.value,
+    });
+  };
+
+  useEffect(() => {
+    const option = inputSelf.low && inputSelf.high ? `${inputSelf.low}g~${inputSelf.high}g` : '';
+
+    optionsDispatch({ type: 'ADD_INPUT_SELF', option });
+  }, [inputSelf]);
+
   return (
     <StyledInputSelf>
       <div>
         <IcCheckRoundTrue />
         <span>직접입력</span>
         <StyledInputRange>
-          <input type="number" />g
+          <input type="number" value={inputSelf.low} onChange={(e) => changeInput(e, 'low')} />g
         </StyledInputRange>
       </div>
 
       <div>
         <StyledInputRange>
           <div>~</div>
-          <input type="number" />g
+          <input type="number" value={inputSelf.high} onChange={(e) => changeInput(e, 'high')} />g
         </StyledInputRange>
       </div>
     </StyledInputSelf>

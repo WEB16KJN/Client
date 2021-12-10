@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import Proptypes from 'prop-types';
 import { colors } from '../../styles/color';
 import InputSelf from './InputSelf';
-
-export default function OptionContent({ content, dispatch }) {
+import { Context } from '../../pages/Main';
+export default function OptionContent({ content }) {
   const [options, setOptions] = useState([]);
 
+  const { optionsDispatch } = useContext(Context);
   useEffect(() => {
     setOptions(content);
   }, []);
@@ -23,13 +24,12 @@ export default function OptionContent({ content, dispatch }) {
 
   const handleClick = (e) => {
     changeColor(e);
-
     const option = {
       api: content.api,
       selected: e.target.innerText,
     };
 
-    dispatch({ type: 'UPDATE_SEARCH_OPTIONS', option });
+    optionsDispatch({ type: 'UPDATE_SEARCH_OPTIONS', option });
   };
 
   const renderOptionCard = () => {
@@ -59,7 +59,6 @@ export default function OptionContent({ content, dispatch }) {
 }
 OptionContent.propTypes = {
   content: Proptypes.object.isRequired,
-  dispatch: Proptypes.func.isRequired,
 };
 const StyledOptionContent = styled.div`
   color: white;

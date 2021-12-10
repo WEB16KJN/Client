@@ -4,17 +4,38 @@ import { colors } from '../../styles/color';
 import OptionContent from './OptionContent';
 import mockOptions from '../../data/main/options.json';
 import { Context } from '../../pages/Main';
+import { getPapers } from '../../api/paper';
 function OptionContents() {
   const { group, use, certification, baseWeight, color } = mockOptions;
-  const { dispatch } = useContext(Context);
+  const { stateOptions, articlesDispatch } = useContext(Context);
+
+  const createQuery = () => {
+    const query = { ...stateOptions };
+    query.weight.push(query.inputSelf);
+
+    Object.keys(query).forEach((key) => {
+      query[key].length <= 0 && delete query[key];
+      key === 'inputSelf' && delete query[key];
+    });
+
+    return query;
+  };
+
+  const searchPaper = async () => {
+    const query = createQuery();
+    const result = await getPapers(query);
+
+    articlesDispatch({ type: 'UPDATE_ARTICLES', result });
+  };
+
   return (
     <StyledOptionContents>
-      <OptionContent content={group} dispatch={dispatch} />
+      <OptionContent content={group} />
       <OptionContent content={use} />
       <OptionContent content={certification} />
-      <OptionContent content={baseWeight} dispatch={dispatch} />
+      <OptionContent content={baseWeight} />
       <OptionContent content={color} />
-      <StyledSearchButton>Search Paper</StyledSearchButton>
+      <StyledSearchButton onClick={searchPaper}>Search Paper</StyledSearchButton>
     </StyledOptionContents>
   );
 }

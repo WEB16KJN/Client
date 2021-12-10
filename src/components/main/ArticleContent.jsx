@@ -4,27 +4,22 @@ import Proptypes from 'prop-types';
 import { colors } from '../../styles/color';
 import { IcLooks, IcLikeFalse, IcLikeTrue } from '../common/Icon';
 export default function ArticleContent({ article }) {
-  const [isLiked, setIsLiked] = useState(localStorage.getItem(`like/${article.id}`));
+  const [isLiked, setIsLiked] = useState(article.like);
 
   const likeHandler = () => {
-    if (!isLiked) {
-      localStorage.setItem(`like/${article.id}`, true);
-    } else {
-      localStorage.removeItem(`like/${article.id}`);
-    }
     setIsLiked((state) => !state);
   };
 
   return (
     <StyledArticleContent>
-      <StyledThumbnail url={article.thumbnail}>
+      <StyledThumbnail url={article.img}>
         <StyledWatching>
           <IcLooks />
-          <span>{article.watching}</span>
+          <span>{article.viewcount}</span>
         </StyledWatching>
         {isLiked ? <IcLikeTrue onClick={likeHandler} /> : <IcLikeFalse onClick={likeHandler} />}
       </StyledThumbnail>
-      <StyledTitle>{article.title}</StyledTitle>
+      <StyledTitle>{article.name}</StyledTitle>
     </StyledArticleContent>
   );
 }

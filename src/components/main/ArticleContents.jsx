@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import PageNav from './PageNav';
 import { colors } from '../../styles/color';
 import ArticleContent from './ArticleContent';
-import mockArticles from '../../data/main/articles.json';
+import { Context } from '../../pages/Main';
 function ArticleContents() {
-  const { articles } = mockArticles;
+  const {
+    stateArticles: { articles, resultCount },
+  } = useContext(Context);
+
+  const renderResultCounts = () =>
+    typeof resultCount === 'string'
+      ? resultCount
+      : `검색한 결과 총 ${resultCount}개의 상품이 있습니다.`;
+
   return (
     <StyledArticleContents>
-      <StyledSearchResult>
-        검색한 결과 총 <span>5,938</span>개의 상품이 있습니다.
-      </StyledSearchResult>
+      <StyledSearchResult>{renderResultCounts()}</StyledSearchResult>
       <StyledArticlesWrapper>
         {articles.map((article) => (
           <ArticleContent article={article} key={article.id} />

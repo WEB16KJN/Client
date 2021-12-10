@@ -3,11 +3,12 @@ import requestHandler from './common/request';
 
 export const getPapers = async (options) => {
   const url = API_URL.GET.PAPER_SEARCH({ query: options });
+  const { json } = await requestHandler.get(url);
 
-  const { json, status } = await requestHandler.get(url);
-
-  if (status === 200) return json.data;
-  throw json.message;
+  return {
+    data: json.data,
+    resultCount: json.status === 200 ? json.data.length : json.message,
+  };
 };
 
 // export const postPaperLike = ...

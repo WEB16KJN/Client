@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/color';
 import { IcCheckRoundTrue } from '../common/Icon';
+import { Context } from '../../pages/Main';
 export default function InputSelf() {
+  const { optionsDispatch } = useContext(Context);
+  const [inputSelf, setInputSelf] = useState({
+    low: '',
+    high: '',
+  });
+
+  const changeInput = (e, input) => {
+    setInputSelf({
+      ...inputSelf,
+      [input]: e.target.value,
+    });
+  };
+
+  useEffect(() => {
+    const option = inputSelf.low && inputSelf.high ? `${inputSelf.low}g~${inputSelf.high}g` : '';
+
+    optionsDispatch({ type: 'ADD_INPUT_SELF', option });
+  }, [inputSelf]);
+
   return (
     <StyledInputSelf>
       <div>
         <IcCheckRoundTrue />
         <span>직접입력</span>
         <StyledInputRange>
-          <input type="number" />g
+          <input type="number" value={inputSelf.low} onChange={(e) => changeInput(e, 'low')} />g
         </StyledInputRange>
       </div>
 
       <div>
         <StyledInputRange>
           <div>~</div>
-          <input type="number" />g
+          <input type="number" value={inputSelf.high} onChange={(e) => changeInput(e, 'high')} />g
         </StyledInputRange>
       </div>
     </StyledInputSelf>
@@ -25,7 +45,7 @@ export default function InputSelf() {
 const StyledInputSelf = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  /* align-items: center; */
   color: ${colors.gray5};
   width: 350px;
   height: 100%;
@@ -35,6 +55,7 @@ const StyledInputSelf = styled.div`
   div {
     display: flex;
     align-items: center;
+    max-height: 56px;
   }
   svg {
     width: 27px;
@@ -47,8 +68,9 @@ const StyledInputSelf = styled.div`
     flex-basis: 59px;
     flex-shrink: 0;
   }
-  @media (max-width: 1100px) {
+  @media (max-width: 1150px) {
     margin-right: 10px;
+    max-height: 112px;
     & > div {
       width: 250px;
       justify-content: flex-end;

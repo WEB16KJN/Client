@@ -1,18 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import Proptypes from 'prop-types';
 import { colors } from '../../styles/color';
 import InputSelf from './InputSelf';
+import { Context } from '../../pages/Main';
 export default function OptionContent({ content }) {
   const [options, setOptions] = useState([]);
 
+  const { optionsDispatch } = useContext(Context);
   useEffect(() => {
     setOptions(content);
   }, []);
 
+  const changeColor = (e) => {
+    if (e.target.style.background !== 'white') {
+      e.target.style.background = 'white';
+      e.target.style.color = 'black';
+    } else {
+      e.target.style.background = null;
+      e.target.style.color = null;
+    }
+  };
+
   const handleClick = (e) => {
-    e.target.style.background = 'white';
-    e.target.style.color = 'black';
+    changeColor(e);
+
+    const option = {
+      api: content.api,
+      selected: e.target.innerText.replaceAll(' ', ''),
+    };
+
+    optionsDispatch({ type: 'UPDATE_SEARCH_OPTIONS', option });
   };
 
   const renderOptionCard = () => {
@@ -50,7 +68,6 @@ const StyledOptionContent = styled.div`
   justify-content: space-between;
   width: 90%;
   margin-bottom: 33px;
-  flex-wrap: wrap;
 
   @media (max-width: 1100px) {
     flex-wrap: nowrap;
@@ -93,11 +110,12 @@ const StyledOptionsWrapper = styled.div`
   }
 `;
 const StyledOptionCard = styled.div`
+  background: ${colors.gray9};
+  color: ${colors.gray1};
   width: 110px;
   height: 47px;
   margin-left: 4px;
   margin-bottom: 8px;
-  background: ${colors.gray9};
   font-family: NanumSquareOTF;
   font-style: normal;
   font-weight: normal;
@@ -106,7 +124,6 @@ const StyledOptionCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${colors.gray1};
   cursor: pointer;
   box-sizing: border-box;
   ${({ color }) => {

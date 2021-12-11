@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Proptype from 'prop-types';
 import { colors } from '../../styles/color';
 import { IcMoveLast, IcMoveNext } from '../common/Icon';
-export default function PageNav() {
+export default function PageNav({ resultCount }) {
   const renderPagination = () => {
-    return Array(10)
+    return Array(typeof resultCount === 'number' ? resultCount : 1)
       .fill()
       .map((e, i) => <li key={i}>{i + 1}</li>);
   };
@@ -20,6 +21,11 @@ export default function PageNav() {
     </StyledPageNav>
   );
 }
+
+PageNav.propTypes = {
+  resultCount: Proptype.any.isRequired,
+};
+
 const StyledPageNav = styled.div`
   width: 100%;
   height: 30px;
@@ -57,7 +63,6 @@ const StyledPaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
 `;
 const StyledButtonWrapper = styled.div`
   display: flex;

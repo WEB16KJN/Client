@@ -2,51 +2,60 @@
   "articles": [
     {
       "id": 1,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142639355-8dd14715-9946-481b-a021-28e4fe94f9c4.png",
-      "title": "두줄일 때는 이렇게 보일것같아요 길어져라 길어져라 길어져라"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142639355-8dd14715-9946-481b-a021-28e4fe94f9c4.png",
+      "name": "두줄일 때는 이렇게 보일것같아요 길어져라 길어져라 길어져라",
+      "like": true
     },
     {
       "id": 2,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142640562-73357a6b-c00c-49bb-85a3-412a4b9b4c49.png",
-      "title": "CHEMICAL PAPER 08"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142640562-73357a6b-c00c-49bb-85a3-412a4b9b4c49.png",
+      "name": "CHEMICAL PAPER 08",
+      "like": false
     },
     {
       "id": 3,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142640777-8c19577f-4927-419f-bfc3-b9b2993cbd28.png",
-      "title": "CHEMICAL PAPER 12"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142640777-8c19577f-4927-419f-bfc3-b9b2993cbd28.png",
+      "name": "CHEMICAL PAPER 12",
+      "like": false
     },
     {
       "id": 4,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142640859-4fd1d9e0-3d7b-4580-9037-d6e92e914a33.png",
-      "title": "CHEMICAL PAPER 15"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142640859-4fd1d9e0-3d7b-4580-9037-d6e92e914a33.png",
+      "name": "CHEMICAL PAPER 15",
+      "like": false
     },
     {
       "id": 5,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142640959-df0ccf40-528b-4bdc-9784-22dd613d682f.png",
-      "title": "보존*KITBOX-A3"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142640959-df0ccf40-528b-4bdc-9784-22dd613d682f.png",
+      "name": "보존*KITBOX-A3",
+      "like": false
     },
     {
       "id": 6,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142641020-14caa334-b2a6-45b8-9212-82fcbebdd2a3.png",
-      "title": "보존*MONJYOBOX-대형"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142641020-14caa334-b2a6-45b8-9212-82fcbebdd2a3.png",
+      "name": "보존*MONJYOBOX-대형",
+      "like": false
     },
     {
       "id": 7,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142641071-599bd053-ac28-4bfc-b3e0-c68e5f0597d3.png",
-      "title": "SANMORE 15"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142641071-599bd053-ac28-4bfc-b3e0-c68e5f0597d3.png",
+      "name": "SANMORE 15",
+      "like": false
     },
     {
       "id": 8,
-      "watching": 214,
-      "thumbnail": "https://user-images.githubusercontent.com/79056677/142641119-9137e00a-22bb-46bc-b777-4af25ed89cc7.png",
-      "title": "보존*MONJYOBOX-신문용"
+      "viewcount": 214,
+      "img": "https://user-images.githubusercontent.com/79056677/142641119-9137e00a-22bb-46bc-b777-4af25ed89cc7.png",
+      "name": "보존*MONJYOBOX-신문용",
+      "like": false
     }
-  ]
+  ],
+  "resultCount": 8
 }

@@ -68,7 +68,6 @@ const StyledOptionContent = styled.div`
   justify-content: space-between;
   width: 90%;
   margin-bottom: 33px;
-  flex-wrap: wrap;
 
   @media (max-width: 1100px) {
     flex-wrap: nowrap;

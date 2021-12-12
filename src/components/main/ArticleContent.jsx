@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
 import { colors } from '../../styles/color';
 import { IcLooks, IcLikeFalse, IcLikeTrue } from '../common/Icon';
-export default function ArticleContent({ article }) {
-  const [isLiked, setIsLiked] = useState(article.like);
+import { postPaperLike } from '../../api/paper';
+export default function ArticleContent({ article, articlesDispatch }) {
+  const likeHandler = async () => {
+    const { id } = article;
+    const success = await postPaperLike(id);
 
-  const likeHandler = () => {
-    setIsLiked((state) => !state);
+    success && articlesDispatch({ type: 'POST_LIKE', id });
   };
 
   return (
@@ -17,7 +19,11 @@ export default function ArticleContent({ article }) {
           <IcLooks />
           <span>{article.viewcount}</span>
         </StyledWatching>
-        {isLiked ? <IcLikeTrue onClick={likeHandler} /> : <IcLikeFalse onClick={likeHandler} />}
+        {article.like ? (
+          <IcLikeTrue onClick={likeHandler} />
+        ) : (
+          <IcLikeFalse onClick={likeHandler} />
+        )}
       </StyledThumbnail>
       <StyledTitle>{article.name}</StyledTitle>
     </StyledArticleContent>
@@ -83,4 +89,5 @@ const StyledWatching = styled.div`
 `;
 ArticleContent.propTypes = {
   article: Proptypes.object.isRequired,
+  articlesDispatch: Proptypes.func.isRequired,
 };

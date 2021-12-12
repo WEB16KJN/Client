@@ -11,4 +11,9 @@ export const getPapers = async (options) => {
   };
 };
 
-// export const postPaperLike = ...
+export const postPaperLike = async (id) => {
+  const url = API_URL.POST.PAPER_LIKE({ id });
+  const { json } = await requestHandler.post(url, { id });
+
+  return json.success;
+};

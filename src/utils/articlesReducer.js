@@ -10,19 +10,16 @@ export const articlesReducer = (state, action) => {
         resultCount: action.result.resultCount,
       };
 
-    case POST_LIKE:
-      return (() => {
-        const articles = state.articles.map((article) => {
-          const temp = { ...article };
-          if (temp.id === action.id) temp.like = !temp.like;
-          return temp;
-        });
-        return {
-          ...state,
-          articles,
-        };
-      })();
-
+    case POST_LIKE: {
+      const articles = state.articles.map((article) => {
+        if (article.id !== action.id) return { ...article };
+        return { ...article, like: !article.like };
+      });
+      return {
+        ...state,
+        articles,
+      };
+    }
     default:
       return state;
   }

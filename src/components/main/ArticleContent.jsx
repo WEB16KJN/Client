@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Proptypes from 'prop-types';
+import { Context } from '../../pages/Main';
 import { colors } from '../../styles/color';
 import { IcLooks, IcLikeFalse, IcLikeTrue } from '../common/Icon';
 import { postPaperLike } from '../../api/paper';
-export default function ArticleContent({ article, articlesDispatch }) {
+export default function ArticleContent({ article }) {
+  const { articlesDispatch } = useContext(Context);
   const likeHandler = async () => {
     const { id } = article;
     const success = await postPaperLike(id);
@@ -89,5 +91,4 @@ const StyledWatching = styled.div`
 `;
 ArticleContent.propTypes = {
   article: Proptypes.object.isRequired,
-  articlesDispatch: Proptypes.func.isRequired,
 };

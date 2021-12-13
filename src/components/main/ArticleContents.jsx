@@ -7,7 +7,6 @@ import { Context } from '../../pages/Main';
 function ArticleContents() {
   const {
     stateArticles: { articles, resultCount },
-    articlesDispatch,
   } = useContext(Context);
 
   const renderResultCounts =
@@ -20,7 +19,7 @@ function ArticleContents() {
       <StyledSearchResult>{renderResultCounts}</StyledSearchResult>
       <StyledArticlesWrapper>
         {articles.map((article) => (
-          <ArticleContent article={article} key={article.id} articlesDispatch={articlesDispatch} />
+          <ArticleContent article={article} key={article.id} />
         ))}
       </StyledArticlesWrapper>
       <PageNav resultCount={resultCount} />

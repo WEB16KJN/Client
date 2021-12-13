@@ -11,24 +11,23 @@ export const initialOptions = {
 
 export const mainReducer = (state = initialOptions, action) => {
   switch (action.type) {
-    case UPDATE_SEARCH_OPTIONS:
-      return (() => {
-        const { api, selected } = action.option;
-        if (!api) return state;
-        if (state[api].includes(selected)) {
-          const newOptions = state[api].filter((option) => option !== selected);
-          return {
-            ...state,
-            [api]: newOptions,
-          };
-        } else {
-          const newOptions = state[api].concat(selected.replaceAll(' ', ''));
-          return {
-            ...state,
-            [api]: newOptions,
-          };
-        }
-      })();
+    case UPDATE_SEARCH_OPTIONS: {
+      const { api, selected } = action.option;
+      if (!api) return state;
+      if (state[api].includes(selected)) {
+        const newOptions = state[api].filter((option) => option !== selected);
+        return {
+          ...state,
+          [api]: newOptions,
+        };
+      } else {
+        const newOptions = state[api].concat(selected.replaceAll(' ', ''));
+        return {
+          ...state,
+          [api]: newOptions,
+        };
+      }
+    }
     case ADD_INPUT_SELF:
       return {
         ...state,

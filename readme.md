@@ -3,11 +3,11 @@
 <div align="center">
 	<table>
 	<th>김서진 @seojinseojin</th>
-	<th>남주영 @jynam17</th>
+	<th>남주영 @NamJwong</th>
 	<th>정세연 @n0eyes</th>
 	<tr>
 		<td><img src="https://github.com/seojinseojin.png"></td>
-		<td><img src="https://github.com/jynam17.png"></td>
+		<td><img src="https://github.com/NamJwong.png"></td>
 		<td><img src="https://github.com/n0eyes.png"></td>
 	</tr>
 	<tr>
